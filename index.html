@@ -74,9 +74,9 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
       <!-- COPY: hero -->
       <p class="eyebrow" data-reveal>Anderson Marketing · Fairfield County, CT</p>
       <h1 class="hero__title">
-        <span class="hline"><span class="hline__in" data-reveal style="--reveal-delay:80ms">Your <span class="cycle-wrap"><em class="cycle" data-cycle-words='["ad spend","funnel","website","email list"]'>ad spend</em><svg class="cycle-under" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3,8 Q45,3 90,7 T197,5"/></svg><span class="cycle-count" aria-hidden="true">01/04</span></span></span></span>
-        <span class="hline"><span class="hline__in" data-reveal style="--reveal-delay:180ms">should pay</span></span>
-        <span class="hline"><span class="hline__in" data-reveal style="--reveal-delay:280ms">for itself.</span></span>
+        <span class="hline" data-reveal style="--reveal-delay:80ms"><span class="hline__in">Your <span class="cycle-wrap u-out"><em class="cycle" data-cycle-words='["ad spend","funnel","website","email list"]'>ad spend</em><svg class="cycle-under" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3,8 Q45,3 90,7 T197,5"/></svg><span class="cycle-count" aria-hidden="true">01/04</span></span></span></span>
+        <span class="hline" data-reveal style="--reveal-delay:180ms"><span class="hline__in">should pay</span></span>
+        <span class="hline" data-reveal style="--reveal-delay:280ms"><span class="hline__in">for itself.</span></span>
       </h1>
       <p class="hero__sub" data-reveal style="--reveal-delay:420ms">I’m Charlie Anderson. My small team builds the ads, funnels, email, and sites that grow local businesses — <span data-copy="stats.clientCount">a handful of</span> clients at a time, so you work with me, not an intern.</p>
       <div class="hero__ctas" data-reveal style="--reveal-delay:520ms">
@@ -85,7 +85,7 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
       </div>
       <!-- /COPY -->
     </div>
-    <div class="hero__meta" data-reveal style="--reveal-delay:640ms">
+    <div class="hero__meta">
       <span>Fairfield County · 41.1°N 73.3°W</span>
       <span>Ads · Funnels · Email · Sites</span>
       <span><b data-copy="stats.clientCount">A few</b> clients at a time</span>
@@ -284,8 +284,8 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
           <label>Email<input type="email" name="email" required autocomplete="email"></label>
           <label>Business name<input name="business" required></label>
           <label>Website URL<input type="url" name="website" placeholder="https://" inputmode="url"></label>
-          <label>Social links <span class="opt">(optional)</span><input name="social"></label>
-          <label class="field--full">What’s not working? <span class="opt">(1–2 sentences)</span><textarea name="problem" rows="3" maxlength="400" required></textarea></label>
+          <label class="field--full"><span>Social links <span class="opt">(optional)</span></span><input name="social"></label>
+          <label class="field--full"><span>What’s not working? <span class="opt">(1–2 sentences)</span></span><textarea name="problem" rows="3" maxlength="400" required></textarea></label>
         </div>
         <button class="btn btn--primary btn--submit" type="submit">Send it — book my free diagnosis</button>
         <p class="form-status" hidden aria-live="polite"></p>

@@ -100,34 +100,30 @@
     var words;
     try { words = JSON.parse(el.getAttribute("data-cycle-words")); } catch (e) { return; }
     if (!words || words.length < 2 || REDUCED) return;
-    // Fix width to the longest word so cycling never shifts layout
-    var probe = document.createElement("span");
-    probe.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;";
-    el.parentNode.appendChild(probe);
-    var max = 0;
-    words.forEach(function (w) { probe.textContent = w; max = Math.max(max, probe.offsetWidth); });
-    probe.remove();
-    el.style.display = "inline-block";
-    el.style.minWidth = max + "px";
     var i = 0, visible = true, timer = null;
-    var counter = el.parentNode.querySelector(".cycle-count");
+    var wrap = el.parentNode;
+    var counter = wrap.querySelector(".cycle-count");
     var vio = new IntersectionObserver(function (en) { visible = en[0].isIntersecting; });
     vio.observe(el);
+    // draw the underline in once the hero line has landed
+    setTimeout(function () { wrap.classList.remove("u-out"); }, 1150);
     function next() {
       timer = setTimeout(function () {
         if (visible && !document.hidden) {
           i = (i + 1) % words.length;
           el.classList.add("cycle-out");
+          wrap.classList.add("u-out"); // erase the annotation with the word
           setTimeout(function () {
             el.textContent = words[i];
             if (counter) counter.textContent = "0" + (i + 1) + "/0" + words.length;
             el.classList.remove("cycle-out");
             el.classList.add("cycle-in");
+            wrap.classList.remove("u-out"); // redraw, fitted to the new word
             setTimeout(function () { el.classList.remove("cycle-in"); }, 620);
           }, 380);
         }
         next();
-      }, 2400);
+      }, 2600);
     }
     next();
   });
