@@ -1,0 +1,184 @@
+# COPY.md — every word on the site, in one place
+
+This file mirrors the live copy so you can review/edit words without digging through markup.
+
+## How copy works (read this once)
+- **Numbers, claims, links, placeholders** live in `js/copy.js` (ONE place). They're injected into
+  `<span data-copy="stats.xxx">` slots at load. Edit `js/copy.js`, then update the tables below.
+- **Narrative copy** (sentences/paragraphs) lives inline in each HTML file inside clearly marked
+  `<!-- COPY: block-name -->` … `<!-- /COPY -->` comments. Each block exists on exactly one page.
+  Edit the HTML between the markers, then update this file.
+- **Exception (the only inline config):** the two lead forms' `action="mailto:charlie@charlieanderson.me"`
+  is baked into `index.html` and `book/index.html` so the form still works without JavaScript.
+  If the email ever changes: those 2 form actions + `config.EMAIL` in `js/copy.js`.
+- Without JavaScript, stat blocks hide themselves (so no empty numbers show) and forms fall back to email.
+
+## Swap table (placeholders → real values; all in `js/copy.js`)
+| Key | Currently | Swap with |
+|---|---|---|
+| `FORM_ENDPOINT` | `[FORM_ENDPOINT]` | Formspree/Basin/etc. POST URL. Until swapped, submit opens email instead. |
+| `BOOKING_URL` | `[BOOKING_URL]` | Calendly/Cal.com link. Hidden on /book/ until swapped. |
+| `LINKEDIN_URL` | `[LINKEDIN_URL]` | LinkedIn profile URL (footer icon hidden until swapped). |
+| `IG_URL` | `[IG_URL]` | Instagram URL (footer icon hidden until swapped). |
+| `EMAIL` | charlie@charlieanderson.me | (real) |
+
+## Claims/stats table (all in `js/copy.js` → `stats`)
+| Key | Value | Used on |
+|---|---|---|
+| `clientCount` | 5–8 | Home hero, The Line, Book FAQ |
+| `mealjoyLaunchMultiple` | 3.33× | Home proof strip, Work case study, Book FAQ |
+| `mealjoyLaunchSpend` | $2,717.66 | Home proof strip, Work case study |
+| `mealjoyLaunchReturn` | $9,063.31 | Home proof strip, Work case study |
+| `mealjoyPeakMultiple` | 4.43× | Home proof strip, Work case study, Book FAQ |
+| `mealjoyPeakWindow` | 12-day | Home proof strip, Work case study, Book FAQ |
+| `mealjoyCpcShort` | ~⅓ | Home proof strip, Work case study |
+
+Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Home proof strip. Never invented.
+
+---
+
+# HOME (`index.html`)
+
+### COPY: hero
+- Eyebrow: `Anderson Marketing · Fairfield County, CT`
+- H1 (kinetic — the bracketed word cycles): `Your [ad spend / funnel / website / email list] should pay for itself.`
+- Sub: `I'm Charlie Anderson. My small team builds the ads, funnels, email, and sites that grow
+  local businesses — {clientCount} clients at a time, so you work with me, not an intern.`
+- CTA: `Get your free diagnosis` · Secondary: `See the work`
+
+### COPY: the-line  (signature section 1 — Pillar 1)
+- Heading: `There's a line.`
+- Left zone (cheap/AI): `On one side: the crappy, cheap Fiverr-and-AI work that never quite gets results.`
+  - Prop cards (set dressing, not claims): `$99 WEBSITE — DELIVERED FAST` / `500 AI POSTS — INSTANT` / `LOGO IN 24 HRS`
+- Right zone (big agency): `On the other: the big agency that overcharges you on a retainer — where you
+  end up working with the boss's assistant's intern, and still never see results.`
+  - Prop cards: hand-off chain `Kickoff: the founder → Reassigned: account director → Reassigned: coordinator → Reassigned: the intern` + a retainer invoice with **redacted bars** (no invented dollar amounts).
+- Middle (the settle): `My small team and I are the sweet middle spot. We take {clientCount} clients at a
+  time and work as personally — or as distant — as you'd like. One goal: money in your pocket, growing
+  your business profitably through systems that pay for themselves.`
+  - Chips: `{clientCount} clients at a time` / `personal or distant — your call` / `systems that pay for themselves`
+
+### COPY: diagnosis  (signature section 2 — Pillar 2)
+- Heading: `Diagnosis first. Like a doctor.`
+- Body: `I don't just sell you a website or ads like most. I take a detailed look at your whole funnel —
+  how everything actually works together — find the weak points, and build you a detailed plan to fix
+  and grow the business.`
+- Kicker: `The plan and the call are free. I only charge if you want my help implementing it.`
+- Diagram labels (illustrative, not claims): nodes `TRAFFIC → WEBSITE → FOLLOW-UP → SALE`;
+  weak-point tags `ads pointed at the homepage` / `no tracking` / `leads go cold`;
+  fix tags `landing page matches the ad` / `tracking wired` / `follow-up that sells`.
+
+### COPY: ai-split  (signature section 3 — Pillar 3)
+- Heading: `Where AI helps. Where it hurts.`
+- Machine side: `I use AI everywhere it speeds up the process — it helped code the site you're looking
+  at right now.`
+- Human side: `But I won't use it for your brand's front-facing work. That takes human creativity — and
+  these days, you can tell. Human work is starting to stand out against the AI slop.`
+- Kicker: `Use it where it helps. Not where it hurts.`
+- Wink caption: `This page: AI on the grunt work. Human on every word.`
+
+### COPY: proof
+- Heading: `Proof, not promises.`
+- Stat cards: `{mealjoyLaunchMultiple} return on launch — {mealjoyLaunchSpend} in, {mealjoyLaunchReturn} out.`
+  / `{mealjoyPeakMultiple} at peak, across a {mealjoyPeakWindow} sprint.` / `New creative cut cost-per-click to {mealjoyCpcShort}.`
+- Attribution: `Meal JOY — local meal-prep. Full breakdown →` (links /work/)
+- Quote slot: `[PENDING] — client words go here when they're real.`
+
+### COPY: about-teaser
+`Student-operator. Daily gym, marathon in training, systems that run from anywhere. I'd rather show
+you a working funnel than a slide deck.` → `More about me →`
+
+### COPY: lead  (also the model for /book/)
+- Heading: `Get a free diagnosis.`
+- Sub: `Tell me what's not working. I'll take a real look at your funnel — ads, site, follow-up, all of
+  it — and walk you through the plan on a free call. If I don't think I can help, I'll tell you that too.`
+- Fields: Name / Email / Business name / Website URL / Social links (optional) / `What's not working? (1–2 sentences)`
+- Button: `Send it — book my free diagnosis`
+- Under-note: `No retainer pitch. No pressure. The plan is yours either way.`
+
+---
+
+# WORK (`work/index.html`)
+
+### COPY: work-hero
+- H1: `The work.` — Sub: `Fewer clients, deeper work. Here's what that looks like.`
+
+### COPY: case-mealjoy  *(EDIT ME: Charlie — confirm the narrative details; numbers are locked in copy.js)*
+- Label: `Flagship case study — Meal JOY · local meal-prep`
+- The setup: `A local meal-prep company launching paid acquisition. The job: turn ad spend into first
+  orders without torching margin.`
+- The system: `Paid social into a first-order funnel, with creative tested and replaced as the numbers
+  came in.`
+- The numbers: `{mealjoyLaunchSpend} in → {mealjoyLaunchReturn} out — a {mealjoyLaunchMultiple} return on
+  the launch.` / `{mealjoyPeakMultiple} at peak, across the best {mealjoyPeakWindow} sprint.` /
+  `New creative dropped cost-per-click to {mealjoyCpcShort} of where it started.`
+- Quote slot: `[PENDING]`
+
+### COPY: card-mcgittigan
+`Jim McGittigan — advisory practice.` / `Site build: a clean, credible home for an advisory practice.` / results: `[PENDING]`
+
+### COPY: card-vividcottage
+`Vivid Cottage — email & CRM.` / `Email and CRM build: follow-up that turns past buyers into repeat ones.` / results: `[PENDING]`
+
+### COPY: work-cta → same diagnosis CTA pattern, links to /book/.
+
+---
+
+# ABOUT (`about/index.html`)
+
+### COPY: about-story
+- H1: `I like scoreboards.`
+- `I'm Charlie Anderson. I started building funnels and running paid ads while still a student, because
+  marketing has a scoreboard — the numbers either move or they don't. Anderson Marketing is that,
+  turned into a real operation: a small team, real systems, and a short client list on purpose.`
+- `Where this is going: a firm known for one thing — systems that pay for themselves. Not headcount,
+  not awards. Results a business owner can read on a bank statement.`
+
+### COPY: about-discipline
+- Heading: `The discipline.`
+- `Gym every day. A 5:56 mile, training toward a marathon, climbing when I can get on a wall. I run
+  client work the same way I train: show up daily, measure everything, improve on purpose. You can't
+  fake a mile time and you can't fake a return on ad spend.`
+
+### COPY: about-adventure
+- Heading: `The range.`
+- `This fall I'm operating from Florence, Italy. The systems don't care where I sit — the ads run, the
+  follow-up sends, the dashboards update, and you can reach me the same way you always do. That's the
+  whole point of building systems instead of selling hours.`
+- Ends at the same diagnosis CTA (links /book/).
+
+---
+
+# BOOK (`book/index.html`)
+
+### COPY: book-hero
+- H1: `The free diagnosis.`
+- `You bring the business. I take a detailed look at the whole funnel — traffic, site, follow-up,
+  sale — find where it leaks, and hand you a written plan to fix and grow it. We walk through it on a
+  free call. You keep the plan either way. I only charge if you want my help implementing it.`
+- Form: same fields as Home lead form. Button: `Book my free diagnosis`.
+- If `BOOKING_URL` set: `Or grab a time directly →`
+
+### COPY: book-faq
+1. `Can you actually deliver?` → `Fair question. The last launch I ran returned {mealjoyLaunchMultiple}
+   on ad spend — {mealjoyPeakMultiple} during its best {mealjoyPeakWindow} stretch. But you don't have to
+   take numbers on faith: the diagnosis is free, and you see the full plan before you pay for anything.`
+2. `Is this just another marketer?` → `Most marketers sell you a deliverable and disappear. I diagnose
+   first, and my team takes {clientCount} clients at a time — so nothing about your business gets handed
+   down to an intern. If the plan doesn't convince you, don't hire me. You keep the plan.`
+3. `Will this work in MY market?` → `That's exactly what the diagnosis finds out. Every local business
+   runs on the same four gears — traffic, site, follow-up, sale. What changes is where yours leak. If I
+   look and don't believe I can move your numbers, I'll tell you that on the call.`
+4. `Is this worth the risk?` → `The call is free and the plan is yours to keep, so the only thing you
+   risk is the time it takes to talk to me. The paid part — implementation — only happens if you decide
+   the plan is worth it.`
+
+---
+
+# SHARED
+
+- Nav: `Work` / `About` / CTA button `Free diagnosis` (→ /book/)
+- Footer: `Anderson Marketing — Fairfield County, CT` · email link (charlie@charlieanderson.me) ·
+  LinkedIn + Instagram (hidden until URLs swapped) · `Built by hand — AI on the grunt work.`
+- 404: `This page doesn't convert. It doesn't even exist.` / `Back home →` / `Or get something useful
+  out of the detour: a free diagnosis →`
