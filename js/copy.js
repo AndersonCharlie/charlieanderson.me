@@ -9,12 +9,12 @@
    ============================================================ */
 window.COPY = {
   config: {
-    // Form POST endpoint (e.g. Formspree/Basin URL). While this is
-    // still a [PLACEHOLDER], the form falls back to opening email.
-    FORM_ENDPOINT: "[FORM_ENDPOINT]",
-    // Optional scheduling link shown on /book/ ("or grab a time directly").
-    // Stays hidden while it's a [PLACEHOLDER].
-    BOOKING_URL: "[BOOKING_URL]",
+    // FormSubmit AJAX endpoint — delivers form submissions to Charlie's inbox.
+    // NOTE: the very first submission triggers an activation email to that
+    // address; click the confirm link once and everything after flows through.
+    FORM_ENDPOINT: "https://formsubmit.co/ajax/charlie@charlieanderson.me",
+    // Calendly — direct call booking
+    BOOKING_URL: "https://calendly.com/charlie-interviews",
     LINKEDIN_URL: "[LINKEDIN_URL]",
     IG_URL: "[IG_URL]",
     EMAIL: "charlie@charlieanderson.me",
@@ -24,7 +24,11 @@ window.COPY = {
     clientCount: "5–8",
     // Charlie's mile time (About page)
     mileTime: "5:56",
-    // Meal JOY — launch return on ad spend
+    // Meal JOY — average ROAS range on Meta ads
+    mealjoyRoasRange: "4–11×",
+    // Meal JOY — what happened to their overall revenue
+    mealjoyRevenueMultiple: "4×",
+    // Meal JOY — launch-month receipts (the "show your work" numbers)
     mealjoyLaunchMultiple: "3.33×",
     mealjoyLaunchSpend: "$2,717.66",
     mealjoyLaunchReturn: "$9,063.31",

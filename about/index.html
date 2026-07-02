@@ -37,10 +37,11 @@
 <header class="nav">
   <div class="nav__inner">
     <a class="nav__mark" href="/" aria-label="Charlie Anderson — home">
-      <svg width="34" height="30" viewBox="0 0 34 30" fill="none" aria-hidden="true">
-        <path d="M16 7.5 A7.5 7.5 0 1 0 16 22.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-        <path d="M19.5 23 L25.5 7 L31.5 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M21.8 17.4 L29.2 17.4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+      <svg width="38" height="30" viewBox="0 0 38 30" fill="none" aria-hidden="true">
+        <path d="M2.5 23 L8.5 7 L14.5 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.2 17.6 L11.8 17.6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M19 23 L19 7 L25 16.5 L31 7 L31 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="35.4" cy="21.6" r="2.1"/>
       </svg>
     </a>
     <nav class="nav__links" aria-label="Primary">
@@ -53,15 +54,21 @@
 
 <main id="main">
   <section class="page-hero">
-    <div class="wrap">
-      <!-- COPY: about-story -->
-      <p class="eyebrow" data-reveal>Charlie Anderson · Anderson Marketing</p>
-      <h1 data-reveal style="--reveal-delay:100ms">I like <em class="accent">scoreboards.</em></h1>
-      <div class="prose" style="margin-top:26px">
-        <p data-reveal style="--reveal-delay:220ms">I’m Charlie Anderson. I started building funnels and running paid ads while still a student, because marketing has a scoreboard — the numbers either move or they don’t. Anderson Marketing is that, turned into a real operation: a small team, real systems, and a short client list on purpose.</p>
-        <p data-reveal style="--reveal-delay:320ms">Where this is going: a firm known for one thing — systems that pay for themselves. Not headcount, not awards. Results a business owner can read on a bank statement.</p>
+    <div class="wrap page-hero__split">
+      <div>
+        <!-- COPY: about-story -->
+        <p class="eyebrow" data-reveal>Charlie Anderson · Anderson Marketing</p>
+        <h1 data-reveal style="--reveal-delay:100ms">I like <em class="accent">scoreboards.</em></h1>
+        <div class="prose" style="margin-top:26px">
+          <p data-reveal style="--reveal-delay:220ms">I’m Charlie Anderson. I started building funnels and running paid ads while still a student, because marketing has a scoreboard — the numbers either move or they don’t. Anderson Marketing is that, turned into a real operation: a small team, real systems, and a short client list on purpose.</p>
+          <p data-reveal style="--reveal-delay:320ms">Where this is going: a firm known for one thing — systems that pay for themselves. Not headcount, not awards. Results a business owner can read on a bank statement.</p>
+        </div>
+        <!-- /COPY -->
       </div>
-      <!-- /COPY -->
+      <figure class="portrait" data-reveal style="--reveal-delay:260ms">
+        <img src="/assets/charlie.jpg" alt="Charlie Anderson" width="480" height="480" fetchpriority="high">
+        <figcaption class="portrait__tag">The guy reading your form submissions</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -95,6 +102,40 @@
     </div>
   </section>
 
+  <section class="about-band" aria-label="The team">
+    <div class="wrap">
+      <!-- COPY: about-team -->
+      <p class="eyebrow" data-reveal>03 — The team</p>
+      <h2 data-reveal style="--reveal-delay:80ms">Small team. No interns.</h2>
+      <div class="prose" style="margin-top:22px">
+        <p data-reveal style="--reveal-delay:180ms">I run point on strategy, paid ads, and the funnel. Micah and Thomas cover the ground I don’t — so between us there’s no hand-off chain, no account manager, no intern. And when a build needs more — video editing, videography — I bring in people I trust, only for as long as the work needs them.</p>
+      </div>
+      <div class="team-grid" data-reveal-group>
+        <article class="team-card" data-reveal>
+          <img class="team-card__photo" src="/assets/charlie.jpg" alt="Charlie Anderson" width="120" height="120" loading="lazy">
+          <h3>Charlie</h3>
+          <p>Strategy, paid ads, funnels, email. Your point of contact — always.</p>
+        </article>
+        <article class="team-card" data-reveal>
+          <span class="team-card__initial" aria-hidden="true">M</span>
+          <h3>Micah</h3>
+          <p>Website conversion and social media. Makes the traffic do something.</p>
+        </article>
+        <article class="team-card" data-reveal>
+          <span class="team-card__initial" aria-hidden="true">T</span>
+          <h3>Thomas</h3>
+          <p>SEO, optimization, and fine-tuning. The compounding, unglamorous wins.</p>
+        </article>
+        <article class="team-card team-card--bench" data-reveal>
+          <span class="team-card__initial" aria-hidden="true">+</span>
+          <h3>The bench</h3>
+          <p>Video editing, videography, and specialists on call — pulled in when your build needs them, not billed when it doesn’t.</p>
+        </article>
+      </div>
+      <!-- /COPY -->
+    </div>
+  </section>
+
   <section class="cta-band">
     <div class="wrap">
       <!-- COPY: about-cta -->
@@ -108,7 +149,7 @@
 
 <footer class="footer">
   <div class="wrap footer__inner">
-    <p class="footer__brand">Anderson Marketing — Fairfield County, CT</p>
+    <p class="footer__brand">Anderson Marketing LLC — Fairfield County, CT</p>
     <div class="footer__links">
       <a data-copy-mailto data-event="email_click" href="mailto:charlie@charlieanderson.me">charlie@charlieanderson.me</a>
       <span data-optional><a data-copy-href="config.LINKEDIN_URL" href="#" rel="me noopener" target="_blank">LinkedIn</a></span>
