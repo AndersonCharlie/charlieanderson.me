@@ -26,3 +26,26 @@ this is the adjudicated result after fixes.
   "solidifies" as it draws; dashes remain the static annotation style.
 
 **Verdict: ship-ready.** No deploy-blocking items open.
+
+---
+
+# Addendum — revision-round audit, 2026-07-02 (pre-deploy)
+
+After Charlie's revision pass (new stats, AM. monogram, team/experience sections, portrait, Calendly
++ FormSubmit endpoints), a 7-agent fleet re-audited every page (5 page auditors + code reviewer +
+creative director): **1 critical, 21 major, 22 minor, 10 polish** findings.
+
+- Critical (form error state invisible on dark + no escape hatch) — **fixed**: error tint + inline
+  "email me directly" mailto link.
+- All 21 majors **fixed**, including: mobile settle-state card bleed (zones now fade fully ≤480px),
+  hero eyebrow/meta wraps at 375, stat-grid squeeze at 768 (breakpoint 720→820), italic display
+  overflow in case headline, missing current-page nav states, portrait caption overhang, section
+  separator rhythm on /work/, 404 vertical centering, dead `.is-hot` selector, cycle-timer/IO
+  hygiene, scan-line `drop-shadow` → cheap glow line (scroll perf).
+- Minors/polish applied except two waived: 404's full-bleed display headline and the pending-quote's
+  1440 whitespace (both intentional design).
+- All 6 creative-director upgrades shipped: stat rule sweep-in, form focus-with-intent underline,
+  persistent nav underline, card hover intent, masked reveals on dark-band headlines, hand-drawn
+  underline motif extended to subpage display words.
+- Re-verified after fixes: 0 JS errors and 0 horizontal overflow on all 5 pages (1280 + 375), form
+  error path shows tinted message + mailto link (formsubmit request aborted in test — no live POST).

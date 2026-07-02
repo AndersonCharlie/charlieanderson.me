@@ -3,47 +3,47 @@
 Personal-brand site for Charlie Anderson / Anderson Marketing. Static HTML/CSS/vanilla JS —
 no build step, no frameworks. GSAP (CDN) powers the three scroll sections on Home.
 
-One conversion: **a business owner requests a free diagnosis** (forms on `/` and `/book/`).
+One conversion: **a business owner requests a free diagnosis** (forms on `/` and `/book/`,
+delivered to charlie@charlieanderson.me via FormSubmit) — or books directly on Calendly.
 
-## Deploy to Vercel (~5 minutes)
+## Hosting — GitHub Pages (live, free)
+
+Deployed from the public repo `AndersonCharlie/charlieanderson.me`, branch `main`, root folder.
+The `CNAME` file pins the custom domain. To publish any change:
 
 ```bash
-# from this folder
-npm i -g vercel        # once
-vercel                 # answer prompts: no build command, output dir = ./ (root)
-vercel --prod
+git add -A && git commit -m "update" && git push
 ```
+(Pages redeploys automatically in ~1 minute.)
 
-Or via dashboard: vercel.com → Add New Project → import this repo (framework preset:
-**Other**, no build command, output directory: root). `404.html` at the root is picked up
-automatically as the 404 page.
-
-Then in the Vercel dashboard:
-1. **Analytics tab → Enable Web Analytics.** The pages already load `/_vercel/insights/script.js`
-   (it 404s on localhost — that's normal) and fire `diagnosis_submit`, `cta_click`, `email_click`
-   custom events.
-2. **Settings → Domains → add `charlieanderson.me`** (and `www.charlieanderson.me`, redirect www → apex).
-
-### DNS (at your registrar for charlieanderson.me)
+### DNS (one-time, at your registrar for charlieanderson.me)
 | Type | Name | Value |
 |---|---|---|
-| A | `@` | `76.76.21.21` |
-| CNAME | `www` | `cname.vercel-dns.com` |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `andersoncharlie.github.io` |
 
-Vercel's dashboard shows the exact records when you add the domain — trust the dashboard if it differs.
-Propagation is usually minutes, occasionally up to an hour. Email (Gmail etc.) is untouched — don't
-delete existing MX records.
+After DNS propagates (minutes–1hr), GitHub auto-issues the HTTPS certificate; then tick
+**"Enforce HTTPS"** in the repo → Settings → Pages. Don't touch existing MX records (email).
 
-## Swap table — placeholders to replace before/after launch
+### Alternative: Vercel (adds working analytics)
+The pages already load Vercel Web Analytics (`/_vercel/insights/script.js` — 404s anywhere
+but Vercel, harmless) and fire `diagnosis_submit` / `cta_click` / `email_click` events.
+Import the repo at vercel.com (preset: Other, no build, root output), add the domain, and
+those events light up. Until then, the Meta Pixel block in index.html is the analytics path.
 
-| What | Where | Swap with |
-|---|---|---|
-| `[FORM_ENDPOINT]` | `js/copy.js` | A form endpoint (Formspree/Basin/Getform) POST URL. **Until then the form falls back to opening the visitor's email app — it works, but an endpoint converts better.** |
-| `[BOOKING_URL]` | `js/copy.js` | Calendly/Cal.com link. The "Or grab a time directly" link on /book/ stays hidden until set. |
-| `[LINKEDIN_URL]` / `[IG_URL]` | `js/copy.js` | Social URLs. Footer icons stay hidden until set. |
-| `[META_PIXEL_ID]` | `index.html` (commented block near top) | Pixel ID; uncomment the block. |
-| SWAP images | — | There are currently **no raster placeholders** to swap; all art is code/SVG. See HANDOFF.md → "Image swaps" for where real photos would slot in. |
-| Testimonials | `[PENDING]` slots on `/` and `/work/` | Real client quotes only. |
+## Config table (all in `js/copy.js`)
+
+| What | Status |
+|---|---|
+| `FORM_ENDPOINT` | **LIVE** — FormSubmit → charlie@charlieanderson.me. ⚠️ The FIRST submission emails you an activation link — click it once (submit the form yourself to trigger it). |
+| `BOOKING_URL` | **LIVE** — calendly.com/charlie-interviews (verify this slug is the client-facing event). |
+| `[LINKEDIN_URL]` / `[IG_URL]` | Placeholders — footer links hidden until set. |
+| `[META_PIXEL_ID]` | Commented block in `index.html` — set ID + uncomment. |
+| Testimonials | `[PENDING]` slots on `/` and `/work/` — real quotes only. |
+| Photos | `assets/charlie.jpg` live; Micah/Thomas headshots pending (initial circles until then). |
 
 ## Editing copy
 Read `COPY.md` first — every word on the site is mirrored there.

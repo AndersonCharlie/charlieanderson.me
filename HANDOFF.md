@@ -52,17 +52,21 @@ Vercel Web Analytics (enable in dashboard after deploy). Custom events already w
 Meta Pixel is a commented block in index.html waiting for `[META_PIXEL_ID]`.
 
 ## Open items (in priority order)
-1. **`[FORM_ENDPOINT]`** in copy.js — until set, form submits fall back to opening the visitor's
-   email app. Works, but set up Formspree/Basin early.
-2. Testimonials — `[PENDING]` slots on `/` and `/work/` (one each). Real quotes only.
-3. `[BOOKING_URL]`, `[LINKEDIN_URL]`, `[IG_URL]` in copy.js (linked elements stay hidden until set).
-4. Meal JOY case-study narrative on /work/ is minimal and flagged **EDIT ME** in COPY.md —
-   Charlie should confirm the "setup/system" wording (numbers are locked and correct).
-5. **Image swaps:** the site currently uses zero raster images by design (SVG/CSS art only).
-   Real photos would upgrade: (a) About — a photo of Charlie (gym/climbing/travel would fit the
-   discipline/range sections), (b) Work — Meal JOY ad creative or dashboard screenshots (redact
-   spend if needed), (c) a real headshot for an eventual OG refresh. When adding, treat them:
-   duotone/warm to match the paper palette, and add `SWAP:` notes here.
+1. **FormSubmit activation** — the endpoint is live (delivers to charlie@charlieanderson.me) but the
+   FIRST submission triggers a one-time activation email; Charlie must click it once.
+2. **DNS** — site is deployed on GitHub Pages with the custom domain configured; Charlie must add
+   the DNS records at his registrar (table in README.md), then enable "Enforce HTTPS".
+3. Testimonials — `[PENDING]` slots on `/` and `/work/` (one each). Real quotes only.
+4. `[LINKEDIN_URL]`, `[IG_URL]` in copy.js (footer links stay hidden until set). Verify the Calendly
+   slug (charlie-interviews) is the client-facing event, not a hiring calendar.
+5. Meal JOY case-study narrative on /work/ is minimal and flagged **EDIT ME** in COPY.md —
+   Charlie should confirm the "setup/system" wording (numbers are locked and correct:
+   4–11× avg Meta ROAS / 4× revenue as headline; launch receipts as the show-your-work line).
+6. **Image swaps:** Charlie's headshot is live (assets/charlie.jpg, warm-filtered). Still pending:
+   Micah/Thomas headshots for the team cards (initial circles until then), Meal JOY ad creative or
+   dashboard screenshots for /work/ (redact spend if needed). Treat all photos duotone/warm.
+7. Analytics — Vercel Web Analytics is wired but inert on GitHub Pages; either move hosting to
+   Vercel (5 min, README) or add the Meta Pixel ID for tracking.
 
 ## Ideas deliberately left out (don't re-add without thinking)
 - WebGL/Three.js tier motion — wrong weight for this brand; GSAP scroll is the ceiling.
