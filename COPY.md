@@ -57,9 +57,10 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
 - Right zone (big agency): `On the other: the big agency that overcharges you on a retainer — where you
   end up working with the boss's assistant's intern, and still never see results.`
   - Prop cards: hand-off chain `Kickoff: the founder → Reassigned: account director → Reassigned: coordinator → Reassigned: the intern` + a retainer invoice with **redacted bars** (no invented dollar amounts).
-- Middle (the settle): `My small team and I are the sweet middle spot. We take {clientCount} clients at a
-  time and work as personally — or as distant — as you'd like. One goal: money in your pocket, growing
-  your business profitably through systems that pay for themselves.`
+- Middle (the settle): label `The sweet middle spot.` + `My small team and I take {clientCount} clients
+  at a time and work as personally — or as distant — as you'd like. One goal: money in your pocket,
+  growing your business profitably through systems that pay for themselves.`
+- Zone tags (set dressing): `The cheap end` / `The bloated end`; agency cards carry "↳ passed down" badges.
   - Chips: `{clientCount} clients at a time` / `personal or distant — your call` / `systems that pay for themselves`
 
 ### COPY: diagnosis  (signature section 2 — Pillar 2)
@@ -162,24 +163,33 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
 
 ### COPY: about-story
 - H1: `I like scoreboards.`
-- `I'm Charlie Anderson. I started building funnels and running paid ads while still a student, because
-  marketing has a scoreboard — the numbers either move or they don't. Anderson Marketing is that,
-  turned into a real operation: a small team, real systems, and a short client list on purpose.`
+- `I'm Charlie Anderson. I started this little marketing business as a sophomore in high school, because
+  marketing has a scoreboard — the numbers either move or they don't. It's been quite the few adventures
+  since: a real team, real systems, a short client list on purpose, and work that's taken us around the world.`
 - `Where this is going: a firm known for one thing — systems that pay for themselves. Not headcount,
   not awards. Results a business owner can read on a bank statement.`
 
 ### COPY: about-discipline
 - Eyebrow: `01 — The discipline` · Heading: `Show up daily. Measure everything.`
-- `Gym every day. A {mileTime} mile, training toward a marathon, climbing when I can get on a wall. I run
-  client work the same way I train: show up daily, measure everything, improve on purpose. You can't
-  fake a mile time, and you can't fake a return on ad spend.`
-- Chips: `Daily gym` / `{mileTime} mile` / `Marathon in training` / `Climbing`
+- `Gym every day. A {mileTime} mile, boxing, climbing when I can get on a wall, skiing when there's snow.
+  I run client work the same way I train: show up daily, measure everything, improve on purpose. You
+  can't fake a mile time, and you can't fake a return on ad spend.`
+- Chips: `Daily gym` / `{mileTime} mile` / `Boxer` / `Climber` / `Skier` / `Marathon in training`
 
 ### COPY: about-adventure
-- Eyebrow: `02 — The range` · Heading: `This fall: Florence, Italy. Your numbers won't notice.`
-- `I'll be operating from Florence this fall. The systems don't care where I sit — the ads run, the
-  follow-up sends, the dashboards update, and you can reach me the same way you always do. That's the
-  whole point of building systems instead of selling hours.`
+- Eyebrow: `02 — The range` · Heading: `Spain. Italy. Germany in October. Your numbers won't notice.`
+- `Since I started, the work has taken me — and the team — around the world: Spain, Italy, Germany this
+  October for Oktoberfest, Nevada, Texas, and counting. The systems don't care where I sit — the ads
+  run, the follow-up sends, the dashboards update, and you can reach me the same way you always do.
+  That's the whole point of building systems instead of selling hours.`
+- Photo: Pisa, Italy (assets/about-italy.jpg) · caption `On location: Italy`
+
+### COPY: about-warning
+- Eyebrow: `04 — Fair warning` · Heading: `Not your Fiverr gig.`
+- `I'm from Fairfield, Connecticut. Boxer, rock climber, skier — a real person you'll actually get along
+  with, not an anonymous gig queue. And if all this adventure, risk, and reward makes you uncomfortable —
+  I'll happily refer you to Fiverr. Or maybe even Indeed. They'll take care of your problem slowly and
+  painstakingly.` (hand underline on the last three words)
 
 ### COPY: about-team
 - Eyebrow: `03 — The team` · Heading: `Small team. No interns.`

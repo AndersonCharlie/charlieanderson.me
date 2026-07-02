@@ -38,6 +38,24 @@
     }
   });
 
+  /* scoreboard digits: split stat values into chars that roll in (CSS-driven) */
+  if (!REDUCED) {
+    document.querySelectorAll(".stat__big").forEach(function (el) {
+      var t = el.textContent;
+      if (!t) return;
+      el.setAttribute("aria-label", t);
+      el.textContent = "";
+      t.split("").forEach(function (c, i) {
+        var s = document.createElement("span");
+        s.className = "ch";
+        s.setAttribute("aria-hidden", "true");
+        s.style.setProperty("--i", i);
+        s.textContent = c;
+        el.appendChild(s);
+      });
+    });
+  }
+
   document.querySelectorAll("[data-copy-mailto]").forEach(function (el) {
     var email = (COPY.config || {}).EMAIL;
     if (isPlaceholder(email)) return;

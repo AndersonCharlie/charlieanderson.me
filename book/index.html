@@ -73,13 +73,13 @@
       <form data-lead-form action="mailto:charlie@charlieanderson.me" method="post" enctype="text/plain" data-reveal style="--reveal-delay:200ms">
         <input type="hidden" name="_subject" value="Free diagnosis request — charlieanderson.me">
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-        <div class="form-fields">
-          <label>Name<input name="name" required autocomplete="name"></label>
-          <label>Email<input type="email" name="email" required autocomplete="email"></label>
-          <label>Business name<input name="business" required></label>
-          <label><span>Website URL <span class="opt">(optional)</span></span><input type="url" name="website" placeholder="https://" inputmode="url"></label>
-          <label class="field--full"><span>Social links <span class="opt">(optional)</span></span><input name="social"></label>
-          <label class="field--full"><span>What’s not working? <span class="opt">(1–2 sentences)</span></span><textarea name="problem" rows="3" maxlength="400" required></textarea></label>
+        <div class="form-fields" data-reveal-group>
+          <label data-reveal>Name<input name="name" required autocomplete="name"></label>
+          <label data-reveal>Email<input type="email" name="email" required autocomplete="email"></label>
+          <label data-reveal>Business name<input name="business" required></label>
+          <label data-reveal><span>Website URL <span class="opt">(optional)</span></span><input type="url" name="website" placeholder="https://" inputmode="url"></label>
+          <label class="field--full" data-reveal><span>Social links <span class="opt">(optional)</span></span><input name="social"></label>
+          <label class="field--full" data-reveal><span>What’s not working? <span class="opt">(1–2 sentences)</span></span><textarea name="problem" rows="3" maxlength="400" required></textarea></label>
         </div>
         <button class="btn btn--primary btn--submit" type="submit">Book my free diagnosis</button>
         <p class="form-status" hidden aria-live="polite"></p>

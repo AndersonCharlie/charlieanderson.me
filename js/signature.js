@@ -25,8 +25,8 @@
     var stage = section.querySelector(".sig-line__stage");
     var track = section.querySelector(".spectrum__track");
     var marker = section.querySelector(".spectrum__marker");
-    var cheap = gsap.utils.toArray(".spectrum__zone--cheap .prop-card");
-    var agency = gsap.utils.toArray(".spectrum__zone--agency .prop-card");
+    var cheap = gsap.utils.toArray(".spectrum__zone--cheap > *");
+    var agency = gsap.utils.toArray(".spectrum__zone--agency > *");
     var zoneCheap = section.querySelector(".spectrum__zone--cheap");
     var zoneAgency = section.querySelector(".spectrum__zone--agency");
     var mid = section.querySelector(".spectrum__mid");
