@@ -13,24 +13,26 @@ This file mirrors the live copy so you can review/edit words without digging thr
   If the email ever changes: those 2 form actions + `config.EMAIL` in `js/copy.js`.
 - Without JavaScript, stat blocks hide themselves (so no empty numbers show) and forms fall back to email.
 
-## Swap table (placeholders → real values; all in `js/copy.js`)
-| Key | Currently | Swap with |
+## Swap table (all in `js/copy.js`)
+| Key | Currently | Notes |
 |---|---|---|
-| `FORM_ENDPOINT` | `[FORM_ENDPOINT]` | Formspree/Basin/etc. POST URL. Until swapped, submit opens email instead. |
-| `BOOKING_URL` | `[BOOKING_URL]` | Calendly/Cal.com link. Hidden on /book/ until swapped. |
-| `LINKEDIN_URL` | `[LINKEDIN_URL]` | LinkedIn profile URL (footer icon hidden until swapped). |
-| `IG_URL` | `[IG_URL]` | Instagram URL (footer icon hidden until swapped). |
+| `FORM_ENDPOINT` | FormSubmit → charlie@charlieanderson.me | **REAL.** First-ever submission triggers a one-time activation email — click its confirm link once. |
+| `BOOKING_URL` | calendly.com/charlie-interviews | **REAL.** Shown in Book hero, under both forms. |
+| `LINKEDIN_URL` | `[LINKEDIN_URL]` | Still placeholder — footer link hidden until swapped. |
+| `IG_URL` | `[IG_URL]` | Still placeholder — footer link hidden until swapped. |
 | `EMAIL` | charlie@charlieanderson.me | (real) |
 
 ## Claims/stats table (all in `js/copy.js` → `stats`)
 | Key | Value | Used on |
 |---|---|---|
 | `clientCount` | 5–8 | Home hero, The Line, Book FAQ |
-| `mealjoyLaunchMultiple` | 3.33× | Home proof strip, Work case study, Book FAQ |
-| `mealjoyLaunchSpend` | $2,717.66 | Home proof strip, Work case study |
-| `mealjoyLaunchReturn` | $9,063.31 | Home proof strip, Work case study |
-| `mealjoyPeakMultiple` | 4.43× | Home proof strip, Work case study, Book FAQ |
-| `mealjoyPeakWindow` | 12-day | Home proof strip, Work case study, Book FAQ |
+| `mealjoyRoasRange` | 4–11× | Home proof strip, Work headline + stats, Book FAQ |
+| `mealjoyRevenueMultiple` | 4× | Home proof strip, Work stats, Book FAQ |
+| `mealjoyLaunchMultiple` | 3.33× | Work "receipts" line |
+| `mealjoyLaunchSpend` | $2,717.66 | Work "receipts" line |
+| `mealjoyLaunchReturn` | $9,063.31 | Work "receipts" line |
+| `mealjoyPeakMultiple` | 4.43× | Work "receipts" line |
+| `mealjoyPeakWindow` | 12-day | Work "receipts" line |
 | `mealjoyCpcShort` | ~⅓ | Home proof strip, Work case study |
 | `mileTime` | 5:56 | About (prose + chip) |
 
@@ -81,8 +83,9 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
 
 ### COPY: proof
 - Heading: `Proof, not promises.`
-- Stat cards: `{mealjoyLaunchMultiple} return on launch — {mealjoyLaunchSpend} in, {mealjoyLaunchReturn} out.`
-  / `{mealjoyPeakMultiple} at peak, across a {mealjoyPeakWindow} sprint.` / `New creative cut cost-per-click to {mealjoyCpcShort}.`
+- Stat cards: `{mealjoyRoasRange} average ROAS on Meta ads, week over week` /
+  `{mealjoyRevenueMultiple} the client's revenue, multiplied since we started` /
+  `{mealjoyCpcShort} the cost-per-click after new creative`
 - Attribution: `Meal JOY — local meal-prep. Full breakdown →` (links /work/)
 - Quote slot: `[PENDING] — client words go here when they're real.`
 
@@ -97,6 +100,7 @@ you a working funnel than a slide deck.` → `More about me →`
 - Fields: Name / Email / Business name / Website URL / Social links (optional) / `What's not working? (1–2 sentences)`
 - Button: `Send it — book my free diagnosis`
 - Under-note: `No retainer pitch. No pressure. The plan is yours either way.`
+- Under form: `Rather just talk? Book the call directly →` (→ {BOOKING_URL})
 
 ---
 
@@ -107,7 +111,12 @@ you a working funnel than a slide deck.` → `More about me →`
 
 ### COPY: case-mealjoy  *(EDIT ME: Charlie — confirm the narrative details; numbers are locked in copy.js)*
 - Label: `Flagship case study — Meal JOY · local meal-prep`
-- H2: `Ad spend in. {mealjoyLaunchMultiple} out.`
+- H2: `Ad spend in. {mealjoyRoasRange} out.`
+- Stats: `{mealjoyRoasRange} average ROAS on Meta ads, week over week` / `{mealjoyRevenueMultiple} the
+  business's revenue, multiplied since we started` / `{mealjoyCpcShort} cost-per-click after new creative`
+- Receipts line: `Show-your-work receipts from the launch month: {mealjoyLaunchSpend} in →
+  {mealjoyLaunchReturn} out ({mealjoyLaunchMultiple}), peaking at {mealjoyPeakMultiple} across a
+  {mealjoyPeakWindow} sprint.`
 - The setup: `A local meal-prep company launching paid acquisition. The job: turn ad spend into first
   orders without torching margin.`
 - The system: `Paid social into a first-order funnel, with creative tested and replaced as the numbers
@@ -118,10 +127,18 @@ you a working funnel than a slide deck.` → `More about me →`
 - Quote slot: `[PENDING]`
 
 ### COPY: card-mcgittigan
-`Jim McGittigan — advisory practice.` / `Site build: a clean, credible home for an advisory practice.` / results: `[PENDING]`
+`Jim McGittigan — ex-Gartner analyst.` / `Website build: a clean, credible home for a former Gartner
+analyst's advisory practice.` / results: `[PENDING]`
 
 ### COPY: card-vividcottage
-`Vivid Cottage — email & CRM.` / `Email and CRM build: follow-up that turns past buyers into repeat ones.` / results: `[PENDING]`
+`Vivid Cottage — local art business.` / `Email automations: follow-up that turns past buyers into
+repeat ones.` / results: `[PENDING]`
+
+### COPY: work-range
+- Eyebrow: `The range so far` · Heading: `Different businesses. Same four gears.`
+- Ledger rows: `01 Pest control company — SEO + website` / `02 NYC flooring company — custom lead-gen
+  software build` / `03 Relationship-counseling brand — full-funnel launch, alongside a large team` /
+  `04 Local practices of all stripes — consultations and funnel diagnoses`
 
 ### COPY: work-cta
 `Want numbers like these with your name on them?` / `Start where every one of these projects started: a
@@ -152,6 +169,18 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   follow-up sends, the dashboards update, and you can reach me the same way you always do. That's the
   whole point of building systems instead of selling hours.`
 
+### COPY: about-team
+- Eyebrow: `03 — The team` · Heading: `Small team. No interns.`
+- Intro: `I run point on strategy, paid ads, and the funnel. Micah and Thomas cover the ground I don't —
+  so between us there's no hand-off chain, no account manager, no intern. And when a build needs more —
+  video editing, videography — I bring in people I trust, only for as long as the work needs them.`
+- Cards: `Charlie — Strategy, paid ads, funnels, email. Your point of contact — always.` (photo) /
+  `Micah — Website conversion and social media. Makes the traffic do something.` /
+  `Thomas — SEO, optimization, and fine-tuning. The compounding, unglamorous wins.` /
+  `The bench — Video editing, videography, and specialists on call — pulled in when your build needs
+  them, not billed when it doesn't.`
+- Portrait caption (hero): `The guy reading your form submissions`
+
 ### COPY: about-cta
 `See what a scoreboard for your business looks like.` / `The diagnosis is free: your whole funnel, the
 weak points, and a written plan. You keep the plan either way.` / button `Get your free diagnosis`
@@ -165,15 +194,17 @@ weak points, and a written plan. You keep the plan either way.` / button `Get yo
 - `You bring the business. I take a detailed look at the whole funnel — traffic, site, follow-up,
   sale — find where it leaks, and hand you a written plan to fix and grow it. We walk through it on a
   free call. You keep the plan either way. I only charge if you want my help implementing it.`
+- Direct link: `Know you want the call? Book it directly →` (→ {BOOKING_URL})
 ### COPY: book-form
 - Heading: `Tell me about the business.` · Sub: `Two minutes of your time. I read every one of these myself.`
 - Same fields as Home lead form. Button: `Book my free diagnosis`.
 - If `BOOKING_URL` set: `Or grab a time directly →` (hidden while placeholder)
 
 ### COPY: book-faq
-1. `Can you actually deliver?` → `Fair question. The last launch I ran returned {mealjoyLaunchMultiple}
-   on ad spend — {mealjoyPeakMultiple} during its best {mealjoyPeakWindow} stretch. But you don't have to
-   take numbers on faith: the diagnosis is free, and you see the full plan before you pay for anything.`
+1. `Can you actually deliver?` → `Fair question. The account I run on Meta averages {mealjoyRoasRange}
+   ROAS week over week, and the business's revenue is up {mealjoyRevenueMultiple} since we started. But
+   you don't have to take numbers on faith: the diagnosis is free, and you see the full plan before you
+   pay for anything.`
 2. `Is this just another marketer?` → `Most marketers sell you a deliverable and disappear. I diagnose
    first, and my team takes {clientCount} clients at a time — so nothing about your business gets handed
    down to an intern. If the plan doesn't convince you, don't hire me. You keep the plan.`
@@ -188,8 +219,8 @@ weak points, and a written plan. You keep the plan either way.` / button `Get yo
 
 # SHARED
 
-- Nav: `Work` / `About` / CTA button `Free diagnosis` (→ /book/)
-- Footer: `Anderson Marketing — Fairfield County, CT` · email link (charlie@charlieanderson.me) ·
+- Nav: AM. monogram · `Work` / `About` / CTA button `Free diagnosis` (→ /book/)
+- Footer: `Anderson Marketing LLC — Fairfield County, CT` · email link (charlie@charlieanderson.me) ·
   LinkedIn + Instagram (hidden until URLs swapped) · `Built by hand — AI on the grunt work.`
 - 404: `This page doesn't convert. It doesn't even exist.` / `Broken links happen — that's exactly the
   kind of leak a diagnosis catches.` / `Back home` / `Get something useful out of the detour — a free diagnosis`

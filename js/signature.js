@@ -63,15 +63,17 @@
       .add(function () { zoneCheap.classList.add("is-glitching"); }, 0.35);
 
     // Act 2 — travel to the agency end (1 → 2)
+    // dimmed zones drop to 0 on small screens so nothing pokes out from behind the mid card
+    var dimmed = function () { return window.matchMedia("(max-width: 480px)").matches ? 0 : 0.28; };
     tl.to(steps[0], { autoAlpha: 0, y: -14, duration: 0.2 }, 1.0)
       .to(marker, { x: markerX(0.94), duration: 0.9, ease: "power1.inOut" }, 0.95)
-      .to(zoneCheap, { autoAlpha: 0.28, duration: 0.3 }, 1.1)
+      .to(zoneCheap, { autoAlpha: dimmed, duration: 0.3 }, 1.1)
       .to(steps[1], { autoAlpha: 1, y: 0, duration: 0.25, ease: EASE_OUT }, 1.25)
       .to(agency, { autoAlpha: 1, y: 0, duration: 0.35, stagger: 0.12, ease: "power2.out" }, 1.2);
 
     // Act 3 — the hard settle in the middle (2 → 3)
     tl.to(steps[1], { autoAlpha: 0, y: -14, duration: 0.2 }, 2.1)
-      .to(zoneAgency, { autoAlpha: 0.28, duration: 0.3 }, 2.15)
+      .to(zoneAgency, { autoAlpha: dimmed, duration: 0.3 }, 2.15)
       .to(marker, { x: markerX(0.5), duration: 0.55, ease: EASE_SNAP }, 2.2)
       .to(mid, { autoAlpha: 1, scale: 1, y: 0, duration: 0.45, ease: EASE_SNAP }, 2.45)
       .to(steps[2], { autoAlpha: 1, y: 0, duration: 0.3, ease: EASE_OUT }, 2.6)
@@ -126,7 +128,7 @@
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=260%",
+            end: "+=210%",
             scrub: 0.6,
             pin: stage,
             anticipatePin: 1,
@@ -193,7 +195,7 @@
         });
         // human side: slow, organic — strokes draw one by one
         gsap.to(strokes, {
-          strokeDashoffset: 0, duration: 1.1, stagger: 0.35, ease: "power2.inOut", delay: 0.5,
+          strokeDashoffset: 0, duration: 0.85, stagger: 0.2, ease: "power2.inOut", delay: 0.4,
         });
       },
     });
@@ -205,9 +207,12 @@
     }
   })();
 
-  /* keep pin math honest once webfonts land */
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+  /* keep pin math honest once webfonts land (debounced — load + fonts.ready often coincide) */
+  var refreshTimer;
+  function queueRefresh() {
+    clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(function () { ScrollTrigger.refresh(); }, 120);
   }
-  window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(queueRefresh);
+  window.addEventListener("load", queueRefresh);
 })();

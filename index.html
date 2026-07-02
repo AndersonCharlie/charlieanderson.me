@@ -164,7 +164,7 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
           <g class="diag__fix"><path d="M520,258 C520,190 520,190 520,120"/><rect class="diag__fixlabel" x="446" y="76" width="148" height="42" rx="8"/><text x="520" y="102">tracking wired</text></g>
           <g class="diag__fix"><path d="M820,258 C820,214 820,214 820,192"/><rect class="diag__fixlabel" x="702" y="148" width="236" height="42" rx="8"/><text x="820" y="174">follow-up that sells</text></g>
 
-          <g class="diag__scan"><line x1="0" y1="60" x2="0" y2="530"/></g>
+          <g class="diag__scan"><line class="diag__scanglow" x1="0" y1="60" x2="0" y2="530"/><line x1="0" y1="60" x2="0" y2="530"/></g>
         </svg>
 
         <!-- mobile / portrait diagram -->
@@ -186,7 +186,7 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
           <g class="diag__fix"><path d="M104,572 C60,572 60,572 40,572 L40,500"/><rect class="diag__fixlabel" x="6" y="458" width="168" height="42" rx="8"/><text x="90" y="484">tracking wired</text></g>
           <g class="diag__fix"><path d="M296,812 C340,812 340,812 360,812 L360,740"/><rect class="diag__fixlabel" x="172" y="698" width="216" height="42" rx="8"/><text x="280" y="724">follow-up that sells</text></g>
 
-          <g class="diag__scan"><line x1="20" y1="0" x2="380" y2="0"/></g>
+          <g class="diag__scan"><line class="diag__scanglow" x1="20" y1="0" x2="380" y2="0"/><line x1="20" y1="0" x2="380" y2="0"/></g>
         </svg>
       </div>
 
@@ -276,7 +276,7 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
   <section class="lead" id="free-diagnosis">
     <div class="wrap">
       <!-- COPY: lead -->
-      <h2 data-reveal>Get a free diagnosis.</h2>
+      <h2><span class="hline" data-reveal><span class="hline__in">Get a free diagnosis.</span></span></h2>
       <p class="lead__sub" data-reveal>Tell me what’s not working. I’ll take a real look at your funnel — ads, site, follow-up, all of it — and walk you through the plan on a free call. If I don’t think I can help, I’ll tell you that too.</p>
 
       <form data-lead-form action="mailto:charlie@charlieanderson.me" method="post" enctype="text/plain" data-reveal>
@@ -286,7 +286,7 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
           <label>Name<input name="name" required autocomplete="name"></label>
           <label>Email<input type="email" name="email" required autocomplete="email"></label>
           <label>Business name<input name="business" required></label>
-          <label>Website URL<input type="url" name="website" placeholder="https://" inputmode="url"></label>
+          <label><span>Website URL <span class="opt">(optional)</span></span><input type="url" name="website" placeholder="https://" inputmode="url"></label>
           <label class="field--full"><span>Social links <span class="opt">(optional)</span></span><input name="social"></label>
           <label class="field--full"><span>What’s not working? <span class="opt">(1–2 sentences)</span></span><textarea name="problem" rows="3" maxlength="400" required></textarea></label>
         </div>

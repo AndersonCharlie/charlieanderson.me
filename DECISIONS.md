@@ -21,3 +21,12 @@ Milestone commits: scaffold/copy → direction → home → pages → QA/docs.
 - D7: Case-study narrative (Meal JOY setup/system) written minimally and flagged "EDIT ME" in COPY.md — details need Charlie's confirmation; numbers locked in copy.js.
 - D8: Direction A "Ledger" wins (warm paper, Fraunces + Inter, #D64518 accent). Scored on skeptical-owner trust: A reads human/premium; B (dark + acid) executed well but reads "tech agency" — wrong shelf for local owners, and clashes with the anti-AI-slop pillar. Stolen from B: mono 01/04 counter on the hero cycling word, earned-accent discipline. Comps kept in comps/ for reference.
 - D9: Hand-drawn SVG underline = recurring "human touch" motif (hero cycle word, AI-split human side). Hero scroll cue replaced by an instrument-style metadata strip (location / scope / capacity).
+
+## Revision round — 2026-07-02 (Charlie's pre-launch edits)
+- D10: Logo → "AM." monogram (Anderson Marketing LLC); the accent period doubles as the brand dot-on-the-line. Footer says "Anderson Marketing LLC".
+- D11: Form endpoint → FormSubmit AJAX (free, no account) delivering to charlie@charlieanderson.me; honeypot + fixed subject added. First-ever submission requires one-click email activation. Mailto path remains the JS-failure fallback.
+- D12: Headline proof updated per Charlie: 4–11× average Meta ROAS + 4× revenue (Meal JOY). Launch-month figures (3.33×, $2,717.66→$9,063.31, 4.43× peak) kept as a "show-your-work receipts" line on /work/ only. All in copy.js.
+- D13: Calendly (calendly.com/charlie-interviews) linked from Book hero + under both forms; kept as links, not an embed — embeds load ~1MB of third-party JS and fight the design system. The form stays the primary path (it feeds the diagnosis).
+- D14: Headshot: Downloads/Images/pfp.jpg → assets/charlie.jpg (480px, warm grayscale CSS filter to sit in the paper palette). Used on About hero + team card.
+- D15: Team section on About (03 — The team): Charlie / Micah (conversion, social) / Thomas (SEO, tuning) / "the bench" (on-call specialists). Work page gains "The range so far" ledger list (pest control, NYC flooring, counseling funnel, consultations) — no invented results attached.
+- D16: Deploy target → GitHub Pages (gh CLI already authenticated; free, autonomous). Vercel remains documented as the analytics-enabled alternative.

@@ -57,17 +57,17 @@
     <div class="wrap">
       <!-- COPY: book-hero -->
       <p class="eyebrow" data-reveal>Free — the plan is yours either way</p>
-      <h1 data-reveal style="--reveal-delay:100ms">The free <em class="accent">diagnosis.</em></h1>
+      <h1 data-reveal style="--reveal-delay:100ms">The free <em class="accent u-h1w">diagnosis.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3,8 Q45,3 90,7 T197,5"/></svg></em></h1>
       <p class="lede" data-reveal style="--reveal-delay:220ms">You bring the business. I take a detailed look at the whole funnel — traffic, site, follow-up, sale — find where it leaks, and hand you a written plan to fix and grow it. We walk through it on a free call. You keep the plan either way. I only charge if you want my help implementing it.</p>
-      <p data-reveal data-optional style="--reveal-delay:320ms; margin-top:26px"><a class="link-arrow" data-copy-href="config.BOOKING_URL" href="#" target="_blank" rel="noopener" data-event="cta_click" data-event-label="booking-hero">Know you want the call? Book it directly</a></p>
+      <p data-reveal data-optional style="--reveal-delay:320ms; margin-top:26px"><a class="link-arrow" data-copy-href="config.BOOKING_URL" href="#" target="_blank" rel="noopener" data-event="cta_click" data-event-label="booking-hero">Skip ahead — book the call directly</a></p>
       <!-- /COPY -->
     </div>
   </section>
 
-  <section class="lead lead--book" aria-label="Request your diagnosis">
+  <section class="lead" aria-label="Request your diagnosis">
     <div class="wrap">
       <!-- COPY: book-form -->
-      <h2 data-reveal>Tell me about the business.</h2>
+      <h2><span class="hline" data-reveal><span class="hline__in">Tell me about the business.</span></span></h2>
       <p class="lead__sub" data-reveal style="--reveal-delay:100ms">Two minutes of your time. I read every one of these myself.</p>
 
       <form data-lead-form action="mailto:charlie@charlieanderson.me" method="post" enctype="text/plain" data-reveal style="--reveal-delay:200ms">
@@ -77,7 +77,7 @@
           <label>Name<input name="name" required autocomplete="name"></label>
           <label>Email<input type="email" name="email" required autocomplete="email"></label>
           <label>Business name<input name="business" required></label>
-          <label>Website URL<input type="url" name="website" placeholder="https://" inputmode="url"></label>
+          <label><span>Website URL <span class="opt">(optional)</span></span><input type="url" name="website" placeholder="https://" inputmode="url"></label>
           <label class="field--full"><span>Social links <span class="opt">(optional)</span></span><input name="social"></label>
           <label class="field--full"><span>What’s not working? <span class="opt">(1–2 sentences)</span></span><textarea name="problem" rows="3" maxlength="400" required></textarea></label>
         </div>

@@ -115,7 +115,7 @@
           wrap.classList.add("u-out"); // erase the annotation with the word
           setTimeout(function () {
             el.textContent = words[i];
-            if (counter) counter.textContent = "0" + (i + 1) + "/0" + words.length;
+            if (counter) counter.textContent = String(i + 1).padStart(2, "0") + "/" + String(words.length).padStart(2, "0");
             el.classList.remove("cycle-out");
             el.classList.add("cycle-in");
             wrap.classList.remove("u-out"); // redraw, fitted to the new word
@@ -125,6 +125,11 @@
         next();
       }, 2600);
     }
+    // pause the loop entirely while the tab is hidden
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { clearTimeout(timer); timer = null; }
+      else if (!timer) next();
+    });
     next();
   });
 
@@ -167,7 +172,12 @@
           showStatus("Got it. I'll take a look and get back to you within a couple of days.", true);
         })
         .catch(function () {
-          showStatus("Something glitched. Email me directly instead: " + (COPY.config.EMAIL || "charlie@charlieanderson.me"), false);
+          var email = COPY.config.EMAIL || "charlie@charlieanderson.me";
+          if (status) {
+            status.innerHTML = 'Something glitched — <a href="mailto:' + email + '">email me directly</a> instead.';
+            status.classList.remove("form-status--ok");
+            status.removeAttribute("hidden");
+          }
         })
         .then(function () {
           if (btn) { btn.disabled = false; btn.classList.remove("is-busy"); }
