@@ -67,6 +67,11 @@ Meta Pixel is a commented block in index.html waiting for `[META_PIXEL_ID]`.
    dashboard screenshots for /work/ (redact spend if needed). Treat all photos duotone/warm.
 7. Analytics — Vercel Web Analytics is wired but inert on GitHub Pages; either move hosting to
    Vercel (5 min, README) or add the Meta Pixel ID for tracking.
+8. Podcast section (Home) — thumbnails self-hosted in assets/podcast/. The Jeff Campbell episode has
+   no custom Spotify art (uses the show cover); if Charlie makes one, swap assets/podcast/campbell.jpg.
+   For social content: the show is "Redefining Limits"; flagship guests Jeff Campbell (ex-CEO Burger
+   King), Peter Russell (CEO Santa Energy), Michael Tetreau (entrepreneur/politician/Vistage chair) —
+   spellings verified against the published episode titles.
 
 ## Ideas deliberately left out (don't re-add without thinking)
 - WebGL/Three.js tier motion — wrong weight for this brand; GSAP scroll is the ceiling.

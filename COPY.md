@@ -89,6 +89,18 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
 - Attribution: `Meal JOY — local meal-prep. Full breakdown →` (links /work/)
 - Quote slot: `[PENDING] — client words go here when they're real.`
 
+### COPY: podcast  (sits between Proof and the About teaser)
+- Eyebrow: `The podcast — Redefining Limits`
+- Heading: `The internet can't teach you everything.`
+- Sub: `I've learned from some of the top performers in the world — and hosted podcasts with some of
+  the top CEOs around. You're free to listen.`
+- Episode cards (each links to its Spotify episode; thumbnails self-hosted in assets/podcast/):
+  `Jeff Campbell — Ex-CEO, Burger King` / `Peter Russell — CEO, Santa Energy` /
+  `Michael Tetreau — Serial entrepreneur · politician · Vistage chair`
+- CTA: `All episodes on Spotify →`
+- NOTE: the Spotify show URL lives in TWO places by design — inline here (works without JS) and
+  `config.SPOTIFY_URL` in js/copy.js (feeds the footer links on all pages). Update both.
+
 ### COPY: about-teaser
 `Student-operator. Daily gym, marathon in training, systems that run from anywhere. I'd rather show
 you a working funnel than a slide deck.` → `More about me →`
@@ -221,6 +233,7 @@ weak points, and a written plan. You keep the plan either way.` / button `Get yo
 
 - Nav: AM. monogram · `Work` / `About` / CTA button `Free diagnosis` (→ /book/)
 - Footer: `Anderson Marketing LLC — Fairfield County, CT` · email link (charlie@charlieanderson.me) ·
-  LinkedIn + Instagram (hidden until URLs swapped) · `Built by hand — AI on the grunt work.`
+  `Podcast` (→ Spotify show) · LinkedIn + Instagram (hidden until URLs swapped) ·
+  `Built by hand — AI on the grunt work.`
 - 404: `This page doesn't convert. It doesn't even exist.` / `Broken links happen — that's exactly the
   kind of leak a diagnosis catches.` / `Back home` / `Get something useful out of the detour — a free diagnosis`

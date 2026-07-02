@@ -15,6 +15,8 @@ window.COPY = {
     FORM_ENDPOINT: "https://formsubmit.co/ajax/charlie@charlieanderson.me",
     // Calendly — direct call booking
     BOOKING_URL: "https://calendly.com/charlie-interviews",
+    // Redefining Limits — the podcast (footer links; episode links live inline on Home)
+    SPOTIFY_URL: "https://open.spotify.com/show/21qiKQ9A0Dk0hfDmqYaZOF",
     LINKEDIN_URL: "[LINKEDIN_URL]",
     IG_URL: "[IG_URL]",
     EMAIL: "charlie@charlieanderson.me",
