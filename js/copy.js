@@ -22,6 +22,8 @@ window.COPY = {
   stats: {
     // How many clients the team takes at a time
     clientCount: "5–8",
+    // Charlie's mile time (About page)
+    mileTime: "5:56",
     // Meal JOY — launch return on ad spend
     mealjoyLaunchMultiple: "3.33×",
     mealjoyLaunchSpend: "$2,717.66",

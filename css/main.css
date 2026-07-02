@@ -156,6 +156,7 @@ html.js .hline.is-in .hline__in { transform: none; }
 
 /* stats hidden without JS: numbers only exist in copy.js */
 html.no-js [data-stats-block] { display: none; }
+html.js .nojs-alt { display: none; } /* prose fallback shown only when stats are hidden */
 
 /* ---------- 5. nav ---------- */
 .nav {
@@ -648,6 +649,9 @@ html.motion .ai-ticker li { opacity: 0; }
 }
 .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
 .faq details p { padding: 0 0 26px; max-width: 60ch; color: var(--ink-soft); }
+
+.book-alt { margin-top: 30px; }
+.book-alt .link-arrow { border-bottom-color: var(--dark-accent); }
 
 /* CTA band reused on subpages */
 .cta-band { background: var(--dark-bg); color: var(--dark-type); padding-block: clamp(64px, 10vh, 120px); }
