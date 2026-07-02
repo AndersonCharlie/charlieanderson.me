@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAF7F0">
+<title>Charlie Anderson — Anderson Marketing</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+/* ============ DIRECTION A — "THE LEDGER" ============ */
+:root{
+  --paper:#FAF7F0;
+  --ink:#16130E;
+  --muted:#6E6759;
+  --hair:#E2DCCE;
+  --accent:#D64518;
+  --pad:clamp(20px, 5vw, 72px);
+  --mono:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', system-ui, -apple-system, sans-serif;
+  --ease-out:cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:cubic-bezier(0.55, 0, 0.68, 0.19);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--accent);color:var(--paper);}
+a{color:inherit;text-decoration:none;}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+/* ---------- Nav ---------- */
+.site-nav{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;gap:clamp(16px, 3vw, 44px);
+  padding:15px var(--pad);
+  background:rgba(250,247,240,.92);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair);
+}
+.mark{display:inline-flex;align-items:center;}
+.mark svg{display:block;}
+.nav-links{display:flex;gap:clamp(14px, 2.4vw, 30px);}
+.nav-link{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);position:relative;padding:4px 0;
+  transition:color .3s ease;
+}
+.nav-link::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);
+  transform:scaleX(0);transform-origin:100% 50%;
+  transition:transform .5s var(--ease-out);
+}
+.nav-link:hover{color:var(--ink);}
+.nav-link:hover::after{transform:scaleX(1);transform-origin:0 50%;}
+.nav-cta{
+  margin-left:auto;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  padding:10px 16px;border:1px solid var(--hair);border-radius:3px;
+  white-space:nowrap;
+  transition:background-color .35s var(--ease-out), color .35s var(--ease-out), border-color .35s var(--ease-out);
+}
+.nav-cta:hover{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+
+/* ---------- Hero ---------- */
+.hero{
+  display:flex;flex-direction:column;
+  min-height:86vh;min-height:86svh;
+  padding:clamp(52px, 11vh, 128px) var(--pad) 26px;
+}
+.eyebrow{
+  margin:0;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-variant-numeric:tabular-nums;
+}
+.eyebrow .mask-inner::before{
+  content:'';display:inline-block;width:32px;height:1px;background:var(--ink);
+  vertical-align:middle;margin-right:14px;
+}
+
+/* masked line reveals (generic) */
+.mask{display:block;overflow:hidden;padding:.1em 0 .24em;margin:-.1em 0 -.24em;}
+.mask-inner{display:block;}
+
+.display{
+  margin:clamp(20px, 3.5vh, 38px) 0 0;
+  font-family:var(--serif);font-optical-sizing:auto;font-weight:480;
+  font-size:clamp(2.55rem, 6.9vw + 1.15rem, 7.7rem);
+  line-height:1.02;letter-spacing:-.018em;
+}
+.h1-line{display:block;overflow:hidden;padding:.1em 0 .24em;margin:-.1em 0 -.24em;}
+.h1-inner{display:block;}
+
+/* the cycling word */
+.cycle{
+  position:relative;display:inline-block;font-style:italic;
+  clip-path:inset(-.12em -.16em -.24em -.06em);
+}
+.cycle-sizer{visibility:hidden;}
+.cycle-word{
+  position:absolute;top:0;left:0;white-space:nowrap;
+  transform:translateY(140%);
+  will-change:transform;
+}
+.cycle-word.is-current{transform:none;}
+.cycle-underline{
+  position:absolute;left:0;bottom:-.06em;
+  width:100%;height:.15em;overflow:visible;
+  transform-origin:0 50%;pointer-events:none;
+  opacity:0;
+}
+html.is-ready .cycle-underline{opacity:1;}
+.cycle-underline path{
+  fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;
+  stroke-dasharray:100 103;stroke-dashoffset:101.5;
+}
+
+.sub{
+  max-width:46ch;
+  margin:clamp(26px, 4.5vh, 44px) 0 0;
+  font-size:clamp(1.02rem, .3vw + .95rem, 1.15rem);
+  line-height:1.7;color:var(--muted);font-weight:400;
+}
+.sub strong{color:var(--ink);font-weight:500;}
+
+.cta-row{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:clamp(22px, 3vw, 38px);
+  margin-top:clamp(32px, 5.5vh, 52px);
+}
+
+/* primary CTA — label rolls up, warm ink rises under it */
+.btn{
+  position:relative;display:inline-block;overflow:hidden;
+  background:var(--ink);color:var(--paper);border-radius:3px;
+  padding:19px 30px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+}
+.btn::before{
+  content:'';position:absolute;inset:0;background:var(--accent);
+  transform:scaleY(0);transform-origin:50% 100%;
+  transition:transform .55s var(--ease-out);
+}
+.btn-mask{position:relative;display:block;overflow:hidden;height:1em;line-height:1;}
+.btn-labels{
+  display:flex;flex-direction:column;gap:0;
+  transition:transform .55s var(--ease-out);
+}
+.btn-label{display:block;height:1em;line-height:1;white-space:nowrap;}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleY(1);}
+.btn:hover .btn-labels,.btn:focus-visible .btn-labels{transform:translateY(-50%);}
+.btn:active{transform:translateY(1px);}
+
+/* secondary link — hairline that swipes out right, back in left */
+.link{
+  position:relative;display:inline-block;padding:6px 0;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+}
+.link::after{
+  content:'';position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--ink);
+}
+.link:hover::after{animation:lineSwipe .65s var(--ease-out) both;}
+@keyframes lineSwipe{
+  0%{transform:scaleX(1);transform-origin:100% 50%;}
+  45%{transform:scaleX(0);transform-origin:100% 50%;}
+  55%{transform:scaleX(0);transform-origin:0 50%;}
+  100%{transform:scaleX(1);transform-origin:0 50%;}
+}
+
+/* ledger meta strip */
+.meta{
+  position:relative;
+  margin-top:auto;
+  padding-top:16px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;
+  gap:10px 28px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-variant-numeric:tabular-nums;
+}
+.meta::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--hair);
+  transform-origin:0 50%;
+}
+.meta span{white-space:nowrap;}
+
+/* ---------- Section 02 — "There's a line." ---------- */
+.line-section{border-top:1px solid var(--hair);}
+.sec-head{
+  display:flex;justify-content:space-between;
+  padding:14px var(--pad);
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+.line-section .sec-body{padding:clamp(90px, 16vh, 190px) var(--pad) 0;}
+.display-2{
+  margin:0;
+  font-family:var(--serif);font-optical-sizing:auto;font-weight:470;
+  font-size:clamp(2.8rem, 10.4vw, 9.4rem);
+  line-height:1;letter-spacing:-.02em;
+}
+.display-2 em{font-style:italic;}
+.h2-line{display:block;overflow:hidden;padding:.1em 0 .24em;margin:-.1em 0 -.24em;}
+.h2-inner{display:block;}
+.big-rule{
+  height:2px;background:var(--accent);
+  margin-top:clamp(44px, 8vh, 88px);
+  transform-origin:0 50%;
+}
+.line-section .spacer{height:44vh;}
+
+/* ============ CHOREOGRAPHY ============ */
+/* Hidden states exist only when JS is present; page is fully legible without it. */
+html.js .site-nav{opacity:0;transform:translateY(-10px);}
+html.js .mask-inner{transform:translateY(140%);}
+html.js .h1-inner{transform:translateY(140%);}
+html.js .reveal{opacity:0;transform:translateY(22px);}
+html.js .meta::before{transform:scaleX(0);}
+html.js .sec-head{opacity:0;}
+html.js .h2-inner{transform:translateY(130%);}
+html.js .big-rule{transform:scaleX(0);}
+
+/* Settled states — fired by .is-ready (load) and .in-view (scroll) */
+html.is-ready .site-nav{
+  opacity:1;transform:none;
+  transition:opacity .75s var(--ease-out) .02s, transform .75s var(--ease-out) .02s;
+}
+html.is-ready .mask-inner{
+  transform:none;
+  transition:transform .85s var(--ease-out) .16s;
+}
+html.is-ready .h1-inner{
+  transform:none;
+  transition:transform 1.05s var(--ease-out);
+}
+html.is-ready .h1-line:nth-of-type(1) .h1-inner{transition-delay:.3s;}
+html.is-ready .h1-line:nth-of-type(2) .h1-inner{transition-delay:.42s;}
+html.is-ready .h1-line:nth-of-type(3) .h1-inner{transition-delay:.54s;}
+html.is-ready .reveal{
+  opacity:1;transform:none;
+  transition:opacity .8s var(--ease-out) var(--d,0s), transform .9s var(--ease-out) var(--d,0s);
+}
+html.is-ready .meta::before{
+  transform:scaleX(1);
+  transition:transform 1.2s var(--ease-out) 1.05s;
+}
+html.is-ready .sec-head{
+  opacity:1;
+  transition:opacity .9s var(--ease-out) 1.2s;
+}
+.line-section.in-view .h2-inner{
+  transform:none;
+  transition:transform 1s var(--ease-out) .05s;
+}
+.line-section.in-view .big-rule{
+  transform:scaleX(1);
+  transition:transform 1.5s var(--ease-out) .35s;
+}
+
+/* ============ REDUCED MOTION — everything static, settled ============ */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{transition:none !important;animation:none !important;}
+  html.js .site-nav,html.js .reveal,html.js .sec-head{opacity:1 !important;transform:none !important;}
+  html.js .mask-inner,html.js .h1-inner,html.js .h2-inner{transform:none !important;}
+  html.js .meta::before,html.js .big-rule{transform:scaleX(1) !important;}
+  html.js .cycle-underline{opacity:1 !important;}
+  html.js .cycle-underline path{stroke-dashoffset:0 !important;}
+  .btn:hover .btn-labels{transform:none !important;}
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width:640px){
+  .site-nav{gap:14px;}
+  .nav-cta{padding:9px 12px;font-size:10.5px;}
+  .meta{flex-direction:column;align-items:flex-start;gap:9px;}
+  .cta-row{gap:20px;}
+  .btn{padding:17px 24px;}
+  .line-section .spacer{height:34vh;}
+}
+</style>
+
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="site-nav">
+  <a class="mark" href="#" aria-label="Charlie Anderson — home">
+    <!-- geometric CA mark: drawn shapes, no text -->
+    <svg width="44" height="26" viewBox="0 0 44 26" fill="none" aria-hidden="true">
+      <path d="M17 2.5 H4.5 V23.5 H17" stroke="#16130E" stroke-width="2.5"/>
+      <path d="M22.5 23.5 L31.75 2.5 L41 23.5" stroke="#16130E" stroke-width="2.5" stroke-linejoin="miter"/>
+      <path d="M26.6 15.5 H36.9" stroke="#16130E" stroke-width="2.5"/>
+    </svg>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a class="nav-link" href="#">Work</a>
+    <a class="nav-link" href="#">About</a>
+  </nav>
+  <a class="nav-cta" href="#">Free diagnosis</a>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow"><span class="mask"><span class="mask-inner">Anderson Marketing&nbsp;&nbsp;·&nbsp;&nbsp;Fairfield County, CT</span></span></p>
+
+    <h1 class="display">
+      <span class="h1-line"><span class="h1-inner">Your <span class="sr-only">ad spend</span><span class="cycle" aria-hidden="true"><span class="cycle-sizer">email list</span><span class="cycle-word is-current">ad spend</span><span class="cycle-word">funnel</span><span class="cycle-word">website</span><span class="cycle-word">email list</span><svg class="cycle-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M1.5 7.2 C 14 3.2, 26 8.6, 40 6.1 C 54 3.6, 66 8.4, 80 6.2 C 88 4.9, 94 5.6, 98.5 4.2" pathLength="100"/></svg></span></span></span>
+      <span class="h1-line"><span class="h1-inner">should pay</span></span>
+      <span class="h1-line"><span class="h1-inner">for itself.</span></span>
+    </h1>
+
+    <p class="sub reveal" style="--d:.78s">I&rsquo;m <strong>Charlie Anderson</strong>. My small team builds the ads, funnels, email, and sites that grow local businesses &mdash; five to eight clients at a time, so you work with me, not an intern.</p>
+
+    <div class="cta-row reveal" style="--d:.94s">
+      <a class="btn" href="#">
+        <span class="btn-mask">
+          <span class="btn-labels">
+            <span class="btn-label">Get your free diagnosis</span>
+            <span class="btn-label" aria-hidden="true">Get your free diagnosis</span>
+          </span>
+        </span>
+      </a>
+      <a class="link" href="#">See the work</a>
+    </div>
+
+    <div class="meta reveal" style="--d:1.15s" aria-hidden="true">
+      <span>Fairfield County&nbsp;·&nbsp;41.14° N, 73.26° W</span>
+      <span>Ads&nbsp;·&nbsp;Funnels&nbsp;·&nbsp;Email&nbsp;·&nbsp;Sites</span>
+      <span>5&ndash;8 clients at a time</span>
+    </div>
+  </section>
+
+  <section class="line-section">
+    <div class="sec-head" aria-hidden="true">
+      <span>01</span>
+      <span>/ 04</span>
+    </div>
+    <div class="sec-body">
+      <h2 class="display-2"><span class="h2-line"><span class="h2-inner">There&rsquo;s a <em>line.</em></span></span></h2>
+    </div>
+    <div class="big-rule" aria-hidden="true"></div>
+    <div class="spacer"></div>
+  </section>
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var docEl = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var EASE_OUT = 'cubic-bezier(0.16, 1, 0.3, 1)';
+  var EASE_IN  = 'cubic-bezier(0.55, 0, 0.68, 0.19)';
+  var HIDDEN = 101.5, SHOWN = 0, ERASED = -101.5;
+
+  var cycle, words, widths, maxW, ul, path;
+  var current = 0, heroVisible = true;
+
+  // Start once display fonts are in (capped, so a slow font never blocks the page)
+  var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  Promise.race([fontsReady, new Promise(function(r){ setTimeout(r, 900); })]).then(start);
+
+  function start(){
+    docEl.classList.add('is-ready');
+
+    cycle = document.querySelector('.cycle');
+    ul    = cycle.querySelector('.cycle-underline');
+    path  = ul.querySelector('path');
+    words = [].slice.call(cycle.querySelectorAll('.cycle-word'));
+
+    measure();
+    window.addEventListener('resize', debounce(measure, 150));
+
+    // scroll-triggered section reveal + rule draw
+    var sec = document.querySelector('.line-section');
+    if ('IntersectionObserver' in window && !reduce){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -22% 0px', threshold: 0.12 });
+      io.observe(sec);
+
+      // don't churn the cycler off-screen
+      var hio = new IntersectionObserver(function(entries){
+        heroVisible = entries[entries.length - 1].isIntersecting;
+      }, { threshold: 0.05 });
+      hio.observe(cycle);
+    } else {
+      sec.classList.add('in-view');
+    }
+
+    if (reduce){ setDash(SHOWN, 0); return; }
+
+    // first underline draw, after the H1 lines have settled
+    setDash(HIDDEN, 0);
+    setTimeout(function(){ setDash(SHOWN, 700, EASE_OUT); }, 1450);
+
+    // the cycle
+    setTimeout(function(){
+      tick();
+      setInterval(tick, 3200);
+    }, 3600);
+  }
+
+  function measure(){
+    widths = words.map(function(w){ return w.getBoundingClientRect().width; });
+    maxW = Math.max.apply(null, widths.concat([1]));
+    ul.style.width = maxW + 'px';
+    setScale(current);
+  }
+
+  function setScale(i){
+    ul.style.transform = 'scaleX(' + (widths[i] / maxW) + ')';
+  }
+
+  function setDash(v, dur, ease){
+    if (dur){
+      path.style.transition = 'stroke-dashoffset ' + dur + 'ms ' + ease;
+    } else {
+      path.style.transition = 'none';
+    }
+    path.style.strokeDashoffset = v;
+    if (!dur){ void path.getBoundingClientRect(); } // commit before next transition
+  }
+
+  function tick(){
+    if (document.hidden || !heroVisible) return;
+
+    var next = (current + 1) % words.length;
+    var out = words[current], inn = words[next];
+
+    // 1 — underline runs off to the right
+    setDash(ERASED, 340, 'cubic-bezier(0.6, 0, 0.8, 0.3)');
+
+    // 2 — masked vertical flip: old word exits up, new word rises to the baseline
+    var a1 = out.animate(
+      [{ transform: 'translateY(0)' }, { transform: 'translateY(-130%)' }],
+      { duration: 500, delay: 60, easing: EASE_IN, fill: 'forwards' }
+    );
+    var a2 = inn.animate(
+      [{ transform: 'translateY(140%)' }, { transform: 'translateY(0)' }],
+      { duration: 800, delay: 180, easing: EASE_OUT, fill: 'forwards' }
+    );
+    a2.onfinish = function(){
+      out.classList.remove('is-current');
+      inn.classList.add('is-current');
+      a1.cancel(); a2.cancel(); // hand state back to CSS classes
+    };
+
+    // 3 — while invisible, re-fit the underline to the new word, then redraw it
+    setTimeout(function(){ setDash(HIDDEN, 0); setScale(next); }, 520);
+    setTimeout(function(){ setDash(SHOWN, 620, EASE_OUT); }, 660);
+
+    current = next;
+  }
+
+  function debounce(fn, ms){
+    var t;
+    return function(){ clearTimeout(t); t = setTimeout(fn, ms); };
+  }
+})();
+</script>
+
+</body>
+</html>

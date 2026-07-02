@@ -19,3 +19,5 @@ Milestone commits: scaffold/copy → direction → home → pages → QA/docs.
 - D5: No invented figures anywhere: agency-side "retainer invoice" in The Line uses redacted bars, not dollar amounts.
 - D6: No-JS behavior: `<html class="no-js">` swapped to `js` inline. Stat blocks hide under `.no-js` (rather than showing empty/duplicated numbers); forms keep mailto action. Keeps every number defined exactly once in copy.js.
 - D7: Case-study narrative (Meal JOY setup/system) written minimally and flagged "EDIT ME" in COPY.md — details need Charlie's confirmation; numbers locked in copy.js.
+- D8: Direction A "Ledger" wins (warm paper, Fraunces + Inter, #D64518 accent). Scored on skeptical-owner trust: A reads human/premium; B (dark + acid) executed well but reads "tech agency" — wrong shelf for local owners, and clashes with the anti-AI-slop pillar. Stolen from B: mono 01/04 counter on the hero cycling word, earned-accent discipline. Comps kept in comps/ for reference.
+- D9: Hand-drawn SVG underline = recurring "human touch" motif (hero cycle word, AI-split human side). Hero scroll cue replaced by an instrument-style metadata strip (location / scope / capacity).
