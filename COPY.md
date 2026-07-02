@@ -32,6 +32,7 @@ This file mirrors the live copy so you can review/edit words without digging thr
 | `mealjoyPeakMultiple` | 4.43× | Home proof strip, Work case study, Book FAQ |
 | `mealjoyPeakWindow` | 12-day | Home proof strip, Work case study, Book FAQ |
 | `mealjoyCpcShort` | ~⅓ | Home proof strip, Work case study |
+| `mileTime` | 5:56 | About (prose + chip) |
 
 Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Home proof strip. Never invented.
 
@@ -45,6 +46,7 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
 - Sub: `I'm Charlie Anderson. My small team builds the ads, funnels, email, and sites that grow
   local businesses — {clientCount} clients at a time, so you work with me, not an intern.`
 - CTA: `Get your free diagnosis` · Secondary: `See the work`
+- Meta strip (bottom of hero): `Fairfield County · 41.1°N 73.3°W` / `Ads · Funnels · Email · Sites` / `{clientCount} clients at a time`
 
 ### COPY: the-line  (signature section 1 — Pillar 1)
 - Heading: `There's a line.`
@@ -105,6 +107,7 @@ you a working funnel than a slide deck.` → `More about me →`
 
 ### COPY: case-mealjoy  *(EDIT ME: Charlie — confirm the narrative details; numbers are locked in copy.js)*
 - Label: `Flagship case study — Meal JOY · local meal-prep`
+- H2: `Ad spend in. {mealjoyLaunchMultiple} out.`
 - The setup: `A local meal-prep company launching paid acquisition. The job: turn ad spend into first
   orders without torching margin.`
 - The system: `Paid social into a first-order funnel, with creative tested and replaced as the numbers
@@ -120,7 +123,9 @@ you a working funnel than a slide deck.` → `More about me →`
 ### COPY: card-vividcottage
 `Vivid Cottage — email & CRM.` / `Email and CRM build: follow-up that turns past buyers into repeat ones.` / results: `[PENDING]`
 
-### COPY: work-cta → same diagnosis CTA pattern, links to /book/.
+### COPY: work-cta
+`Want numbers like these with your name on them?` / `Start where every one of these projects started: a
+free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /book/)
 
 ---
 
@@ -135,17 +140,21 @@ you a working funnel than a slide deck.` → `More about me →`
   not awards. Results a business owner can read on a bank statement.`
 
 ### COPY: about-discipline
-- Heading: `The discipline.`
-- `Gym every day. A 5:56 mile, training toward a marathon, climbing when I can get on a wall. I run
+- Eyebrow: `01 — The discipline` · Heading: `Show up daily. Measure everything.`
+- `Gym every day. A {mileTime} mile, training toward a marathon, climbing when I can get on a wall. I run
   client work the same way I train: show up daily, measure everything, improve on purpose. You can't
-  fake a mile time and you can't fake a return on ad spend.`
+  fake a mile time, and you can't fake a return on ad spend.`
+- Chips: `Daily gym` / `{mileTime} mile` / `Marathon in training` / `Climbing`
 
 ### COPY: about-adventure
-- Heading: `The range.`
-- `This fall I'm operating from Florence, Italy. The systems don't care where I sit — the ads run, the
+- Eyebrow: `02 — The range` · Heading: `This fall: Florence, Italy. Your numbers won't notice.`
+- `I'll be operating from Florence this fall. The systems don't care where I sit — the ads run, the
   follow-up sends, the dashboards update, and you can reach me the same way you always do. That's the
   whole point of building systems instead of selling hours.`
-- Ends at the same diagnosis CTA (links /book/).
+
+### COPY: about-cta
+`See what a scoreboard for your business looks like.` / `The diagnosis is free: your whole funnel, the
+weak points, and a written plan. You keep the plan either way.` / button `Get your free diagnosis`
 
 ---
 
@@ -156,8 +165,10 @@ you a working funnel than a slide deck.` → `More about me →`
 - `You bring the business. I take a detailed look at the whole funnel — traffic, site, follow-up,
   sale — find where it leaks, and hand you a written plan to fix and grow it. We walk through it on a
   free call. You keep the plan either way. I only charge if you want my help implementing it.`
-- Form: same fields as Home lead form. Button: `Book my free diagnosis`.
-- If `BOOKING_URL` set: `Or grab a time directly →`
+### COPY: book-form
+- Heading: `Tell me about the business.` · Sub: `Two minutes of your time. I read every one of these myself.`
+- Same fields as Home lead form. Button: `Book my free diagnosis`.
+- If `BOOKING_URL` set: `Or grab a time directly →` (hidden while placeholder)
 
 ### COPY: book-faq
 1. `Can you actually deliver?` → `Fair question. The last launch I ran returned {mealjoyLaunchMultiple}
@@ -180,5 +191,5 @@ you a working funnel than a slide deck.` → `More about me →`
 - Nav: `Work` / `About` / CTA button `Free diagnosis` (→ /book/)
 - Footer: `Anderson Marketing — Fairfield County, CT` · email link (charlie@charlieanderson.me) ·
   LinkedIn + Instagram (hidden until URLs swapped) · `Built by hand — AI on the grunt work.`
-- 404: `This page doesn't convert. It doesn't even exist.` / `Back home →` / `Or get something useful
-  out of the detour: a free diagnosis →`
+- 404: `This page doesn't convert. It doesn't even exist.` / `Broken links happen — that's exactly the
+  kind of leak a diagnosis catches.` / `Back home` / `Get something useful out of the detour — a free diagnosis`
