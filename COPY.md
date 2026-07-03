@@ -205,8 +205,8 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   so between us there's no hand-off chain, no account manager, no intern. And when a build needs more —
   video editing, videography — I bring in people I trust, only for as long as the work needs them.`
 - Cards: `Charlie — Strategy, paid ads, funnels, email. Your point of contact — always.` (photo) /
-  `Micah — Website conversion and social media. Makes the traffic do something.` /
-  `Thomas — SEO, optimization, and fine-tuning. The compounding, unglamorous wins.` /
+  `Micah — Website conversion and social media. Makes the traffic do something.` (photo, B&W) /
+  `Thomas — SEO, optimization, and fine-tuning. The compounding, unglamorous wins.` (photo) /
   `The bench — Video editing, videography, and specialists on call — only when your build needs them.`
 
 ### COPY: about-standard
