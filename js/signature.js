@@ -78,7 +78,6 @@
       .to(mid, { autoAlpha: 1, scale: 1, y: 0, duration: 0.45, ease: EASE_SNAP }, 2.45)
       .to(steps[2], { autoAlpha: 1, y: 0, duration: 0.3, ease: EASE_OUT }, 2.6)
       .to(chips, { autoAlpha: 1, y: 0, duration: 0.25, stagger: 0.07, ease: EASE_OUT }, 2.75)
-      .add(function () { section.classList.add("is-settled"); }, 2.7)
       .to({}, { duration: 0.3 }); // breathing room at the end of the pin
   })();
 
@@ -113,7 +112,7 @@
             gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
           });
         });
-        gsap.set(nodes, { autoAlpha: 0, scale: 0.7, transformOrigin: "center" });
+        gsap.set(nodes, { autoAlpha: 0.12, scale: 0.9, transformOrigin: "center" }); // ghost skeleton — the stage never looks empty
         gsap.set(weaks, { autoAlpha: 0 });
         gsap.set(svg.querySelectorAll(".diag__fix text, .diag__fix .diag__fixlabel"), { autoAlpha: 0 });
         gsap.set(scan, { autoAlpha: 0 });

@@ -198,7 +198,7 @@
           }
         })
         .then(function () {
-          if (btn) { btn.disabled = false; btn.classList.remove("is-busy"); }
+          if (btn && !btn.hasAttribute("hidden")) { btn.disabled = false; btn.classList.remove("is-busy"); }
         });
     });
   });

@@ -17,7 +17,8 @@ window.COPY = {
     BOOKING_URL: "https://calendly.com/charlie-interviews",
     // Redefining Limits — the podcast (footer links; episode links live inline on Home)
     SPOTIFY_URL: "https://open.spotify.com/show/21qiKQ9A0Dk0hfDmqYaZOF",
-    LINKEDIN_URL: "[LINKEDIN_URL]",
+    LINKEDIN_URL: "https://www.linkedin.com/in/charlie-anderson-957988286/",
+    // No Instagram yet — footer link stays hidden until this is a real URL
     IG_URL: "[IG_URL]",
     EMAIL: "charlie@charlieanderson.me",
   },
@@ -39,6 +40,5 @@ window.COPY = {
     mealjoyPeakWindow: "12-day",
     // Meal JOY — what new creative did to cost-per-click
     mealjoyCpcShort: "~⅓",
-    mealjoyCpcSentence: "about a third of what it was",
   },
 };

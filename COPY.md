@@ -56,7 +56,7 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
   - Prop cards (set dressing, not claims): `$99 WEBSITE — DELIVERED FAST` / `500 AI POSTS — INSTANT` / `LOGO IN 24 HRS`
 - Right zone (big agency): `On the other: the big agency that overcharges you on a retainer — where you
   end up working with the boss's assistant's intern, and still never see results.`
-  - Prop cards: hand-off chain `Kickoff: the founder → Reassigned: account director → Reassigned: coordinator → Reassigned: the intern` + a retainer invoice with **redacted bars** (no invented dollar amounts).
+  - Prop cards: hand-off chain `Kickoff: the founder → Reassigned: account director → Reassigned: coordinator → Reassigned: the intern` + a retainer invoice card: `RETAINER — AUTO-RENEWS / $4,000/mo` (satirical set dressing; the figure was Charlie's explicit choice).
 - Middle (the settle): label `The sweet middle spot.` + `My small team and I take {clientCount} clients
   at a time and work as personally — or as distant — as you'd like. One goal: money in your pocket,
   growing your business profitably through systems that pay for themselves.`
@@ -88,7 +88,10 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
   `{mealjoyRevenueMultiple} the client's revenue, multiplied since we started` /
   `{mealjoyCpcShort} the cost-per-click after new creative`
 - Attribution: `Meal JOY — local meal-prep. Full breakdown →` (links /work/)
-- Quote slot: `[PENDING] — client words go here when they're real.`
+- Quote (REAL — transcribed from Sergio's video testimonial in Charlie's files):
+  `"The numbers speak for themselves since he's come on board — our numbers have more than doubled.
+  Nothing but great things to say about Charlie." — Sergio, chef-owner, Meal JOY Foods`
+  (Work page uses a second verbatim line from the same video. Source: "Sergio Testimonial 2x Revenue.MOV")
 
 ### COPY: podcast  (sits between Proof and the About teaser)
 - Eyebrow: `The podcast — Redefining Limits`
@@ -103,7 +106,8 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
   `config.SPOTIFY_URL` in js/copy.js (feeds the footer links on all pages). Update both.
 
 ### COPY: about-teaser
-`Student-operator. Daily gym, marathon in training, systems that run from anywhere. I'd rather show
+Roles line: `Founder · University student · Boxer · Rock climber · Skier`
+`…and I happen to build systems that make you money without lifting your finger. But I'd rather show
 you a working funnel than a slide deck.` → `More about me →`
 
 ### COPY: lead  (also the model for /book/)
