@@ -180,7 +180,7 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   all day; I like being outside, competing, and hanging out with good people. Point is: I'm a normal guy
   you'll actually enjoy working with — who happens to be serious about what he does.`
 - Chips: `Daily gym` / `Boxer` / `Climber` / `Skier` / `Marathon in training`
-- Photo: ski selfie (assets/about-ski.jpg) · caption `Between runs`
+- Photo: REMOVED pending Charlie's exact ski selfie (AirDrop → slot marked SWAP in HTML)
 
 ### COPY: about-adventure
 - Eyebrow: `02 — The range` · Heading: `Spain. Italy. Germany in October. Your numbers won't notice.`
@@ -206,7 +206,7 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   worth doing, it's worth doing properly. A $25 gig worker gets paid the second the task is marked
   complete, whether it worked or not. I get paid when it works — when your numbers move.`
   (hand underline on "when your numbers move.")
-- Photo: beanie ridge shot (assets/about-warning.jpg) · caption `Comes with the standard`
+- Photo: REMOVED pending Charlie's exact beanie shot (AirDrop → slot marked SWAP in HTML)
 
 ### COPY: about-cta
 `Let's see what your numbers could look like.` / `The diagnosis is free: your whole funnel, the
