@@ -39,10 +39,11 @@ those events light up. Until then, the Meta Pixel block in index.html is the ana
 | What | Status |
 |---|---|
 | `FORM_ENDPOINT` | **LIVE** — FormSubmit → charlie@charlieanderson.me. ⚠️ The FIRST submission emails you an activation link — click it once (submit the form yourself to trigger it). |
-| `BOOKING_URL` | **LIVE** — calendly.com/charlie-interviews (verify this slug is the client-facing event). |
-| `[LINKEDIN_URL]` / `[IG_URL]` | Placeholders — footer links hidden until set. |
+| `BOOKING_URL` | **LIVE** — calendly.com/charlie-interviews (confirmed by Charlie). |
+| `LINKEDIN_URL` | **LIVE** — real profile URL in copy.js (also hardcoded as the no-JS href). |
+| `[IG_URL]` | Placeholder — footer link hidden until Charlie has an Instagram. |
 | `[META_PIXEL_ID]` | Commented block in `index.html` — set ID + uncomment. |
-| Testimonials | `[PENDING]` slots on `/` and `/work/` — real quotes only. |
+| Testimonials | **DONE** — Sergio (Meal JOY) verbatim quotes live on `/` and `/work/`. New ones: real quotes only, edit inline + mirror in COPY.md. |
 | Photos | `assets/charlie.jpg` live; Micah/Thomas headshots pending (initial circles until then). |
 
 ## Editing copy

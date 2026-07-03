@@ -49,3 +49,20 @@ creative director): **1 critical, 21 major, 22 minor, 10 polish** findings.
   underline motif extended to subpage display words.
 - Re-verified after fixes: 0 JS errors and 0 horizontal overflow on all 5 pages (1280 + 375), form
   error path shows tinted message + mailto link (formsubmit request aborted in test — no live POST).
+
+
+---
+
+# Final publishing review — overnight, 2026-07-03
+
+Four-agent fleet (code debug / design / copy+docs / a11y+perf+SEO) over the finished site.
+**Design verdict: "passes at the top-1% bar"** — both pin choreographies complete cleanly at
+1440/768/390, the reordered Home has no rough seams, About bands read cleanly.
+
+30 findings, all applied except two waived:
+- `/call/` (orphaned legacy booking page): now `noindex,nofollow` + robots-disallowed. Its internal
+  keyboard-nav gap is waived — page is unlinked and superseded by Calendly. Delete it whenever.
+- `charlie.jpg` has no 2x variant — the source photo is 400px; needs a higher-res headshot to fix.
+
+Final sweep after fixes: all pages × 320/390/768/1440, motion + reduced-motion — 0 JS errors,
+0 horizontal overflow, no-JS fallbacks verified on /work/ (stats prose fallback) and forms (mailto).

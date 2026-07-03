@@ -75,7 +75,7 @@
 
     // Act 2 — travel to the agency end (1 → 2)
     // dimmed zones drop to 0 on small screens so nothing pokes out from behind the mid card
-    var dimmed = function () { return window.matchMedia("(max-width: 480px)").matches ? 0 : 0.28; };
+    var dimmed = function () { return window.matchMedia("(max-width: 820px)").matches ? 0 : 0.28; };
     tl.to(steps[0], { autoAlpha: 0, y: -14, duration: 0.2 }, 1.0)
       .to(marker, { x: markerX(0.94), duration: 0.9, ease: "power1.inOut" }, 0.95)
       .to(zoneCheap, { autoAlpha: dimmed, duration: 0.3 }, 1.1)

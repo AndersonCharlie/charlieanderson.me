@@ -35,11 +35,13 @@ This file mirrors the live copy so you can review/edit words without digging thr
 | `mealjoyPeakWindow` | 12-day | Work "receipts" line |
 | `mealjoyCpcShort` | ~⅓ | Home proof strip, Work case study |
 
-Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Home proof strip. Never invented.
+Testimonials: **LIVE** — real Sergio quotes (chef-owner, Meal JOY Foods) on `/` and `/work/`, transcribed verbatim from "Sergio Testimonial 2x Revenue.MOV". New testimonials: real quotes only.
 
 ---
 
 # HOME (`index.html`)
+
+Section order: hero → Diagnosis (pinned) → Podcast → There's a line (pinned) → AI split → Proof → About teaser → Lead form.
 
 ### COPY: hero
 - Eyebrow: `Anderson Marketing · Fairfield County, CT`
@@ -48,6 +50,18 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
   local businesses — {clientCount} clients at a time, so you work with me, not an intern.`
 - CTA: `Get your free diagnosis` · Secondary: `See the work`
 - Meta strip (bottom of hero): `Fairfield County · 41.1°N 73.3°W` / `Ads · Funnels · Email · Sites` / `{clientCount} clients at a time`
+
+### COPY: podcast  (sits between Diagnosis and The Line)
+- Eyebrow: `The podcast — Redefining Limits`
+- Heading: `The internet can't teach you everything.`
+- Sub: `I've learned from some of the top performers in the world — and hosted podcasts with some of
+  the top CEOs around. You're free to listen.`
+- Episode cards (each links to its Spotify episode; thumbnails self-hosted in assets/podcast/):
+  `Jeff Campbell — Ex-CEO, Burger King` / `Peter Russell — CEO, Santa Energy` /
+  `Michael Tetreau — Serial entrepreneur · politician · Vistage chair`
+- CTA: `All episodes on Spotify →`
+- NOTE: the Spotify show URL lives in TWO places by design — inline here (works without JS) and
+  `config.SPOTIFY_URL` in js/copy.js (feeds the footer links on all pages). Update both.
 
 ### COPY: the-line  (signature section 1 — Pillar 1)
 - Heading: `There's a line.`
@@ -92,18 +106,6 @@ Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Hom
   Nothing but great things to say about Charlie." — Sergio, chef-owner, Meal JOY Foods`
   (Work page uses a second verbatim line from the same video. Source: "Sergio Testimonial 2x Revenue.MOV")
 
-### COPY: podcast  (sits between Proof and the About teaser)
-- Eyebrow: `The podcast — Redefining Limits`
-- Heading: `The internet can't teach you everything.`
-- Sub: `I've learned from some of the top performers in the world — and hosted podcasts with some of
-  the top CEOs around. You're free to listen.`
-- Episode cards (each links to its Spotify episode; thumbnails self-hosted in assets/podcast/):
-  `Jeff Campbell — Ex-CEO, Burger King` / `Peter Russell — CEO, Santa Energy` /
-  `Michael Tetreau — Serial entrepreneur · politician · Vistage chair`
-- CTA: `All episodes on Spotify →`
-- NOTE: the Spotify show URL lives in TWO places by design — inline here (works without JS) and
-  `config.SPOTIFY_URL` in js/copy.js (feeds the footer links on all pages). Update both.
-
 ### COPY: about-teaser
 Roles line: `Founder · University student · Boxer · Rock climber · Skier`
 `…and I happen to build systems that make you money without lifting your finger. But I'd rather show
@@ -140,15 +142,15 @@ you a working funnel than a slide deck.` → `More about me →`
 - The numbers: `{mealjoyLaunchSpend} in → {mealjoyLaunchReturn} out — a {mealjoyLaunchMultiple} return on
   the launch.` / `{mealjoyPeakMultiple} at peak, across the best {mealjoyPeakWindow} sprint.` /
   `New creative dropped cost-per-click to {mealjoyCpcShort} of where it started.`
-- Quote slot: `[PENDING]`
+- Quote: Sergio verbatim (see proof section note) — the "takes the initiative" line.
 
 ### COPY: card-mcgittigan
 `Jim McGittigan — ex-Gartner analyst.` / `Website build: a clean, credible home for a former Gartner
-analyst's advisory practice.` / results: `[PENDING]`
+analyst's advisory practice.` / status line: `In build — numbers published when they're real`
 
 ### COPY: card-vividcottage
 `Vivid Cottage — local art business.` / `Email automations: follow-up that turns past buyers into
-repeat ones.` / results: `[PENDING]`
+repeat ones.` / status line: `In build — numbers published when they're real`
 
 ### COPY: work-range
 - Eyebrow: `The range so far` · Heading: `Different businesses. Same four gears.`
@@ -186,7 +188,17 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   October for Oktoberfest, Nevada, Texas, and counting. The systems don't care where I sit — the ads
   run, the follow-up sends, the dashboards update, and you can reach me the same way you always do.
   That's the whole point of building systems instead of selling hours.`
-- Photo: Pisa, Italy (assets/about-italy.jpg) · caption `On location: Italy`
+- Photo: mountain overlook, seated on the rock (assets/about-range.jpg) · caption `Somewhere with signal`
+
+### COPY: about-team
+- Eyebrow: `03 — The team` · Heading: `Small team. No interns.`
+- Intro: `I run point on strategy, paid ads, and the funnel. Micah and Thomas cover the ground I don't —
+  so between us there's no hand-off chain, no account manager, no intern. And when a build needs more —
+  video editing, videography — I bring in people I trust, only for as long as the work needs them.`
+- Cards: `Charlie — Strategy, paid ads, funnels, email. Your point of contact — always.` (photo) /
+  `Micah — Website conversion and social media. Makes the traffic do something.` /
+  `Thomas — SEO, optimization, and fine-tuning. The compounding, unglamorous wins.` /
+  `The bench — Video editing, videography, and specialists on call — only when your build needs them.`
 
 ### COPY: about-standard
 - Eyebrow: `04 — The standard` · Heading: `Done properly, or not at all.`
@@ -209,7 +221,7 @@ weak points, and a written plan. You keep the plan either way.` / button `Get yo
 - `You bring the business. I take a detailed look at the whole funnel — traffic, site, follow-up,
   sale — find where it leaks, and hand you a written plan to fix and grow it. We walk through it on a
   free call. You keep the plan either way. I only charge if you want my help implementing it.`
-- Direct link: `Know you want the call? Book it directly →` (→ {BOOKING_URL})
+- Direct link: `Skip ahead — book the call directly` (→ {BOOKING_URL})
 ### COPY: book-form
 - Heading: `Tell me about the business.` · Sub: `Two minutes of your time. I read every one of these myself.`
 - Same fields as Home lead form. Button: `Book my free diagnosis`.
@@ -239,4 +251,4 @@ weak points, and a written plan. You keep the plan either way.` / button `Get yo
   `Podcast` (→ Spotify show) · LinkedIn + Instagram (hidden until URLs swapped) ·
   `Built by hand — AI on the grunt work.`
 - 404: `This page doesn't convert. It doesn't even exist.` / `Broken links happen — that's exactly the
-  kind of leak a diagnosis catches.` / `Back home` / `Get something useful out of the detour — a free diagnosis`
+  kind of leak a diagnosis catches.` / `Back home` / `Turn the detour into a free diagnosis`

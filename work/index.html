@@ -23,7 +23,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380..700;1,9..144,380..700&family=Inter:wght@400;500;600&display=swap">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380..700;1,9..144,380..700&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380..700;1,9..144,380..700&family=Inter:wght@400;500;600&display=swap"></noscript>
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -67,7 +68,7 @@
     <div class="wrap">
       <!-- COPY: case-mealjoy  (EDIT ME: confirm narrative details — numbers live in js/copy.js) -->
       <p class="case__label" data-reveal>Flagship case study — Meal JOY<span class="case__label__loc">local meal-prep</span></p>
-      <h2 data-reveal style="--reveal-delay:100ms">Ad spend in. <em class="accent" data-stats-block><span data-copy="stats.mealjoyRoasRange"></span> out.</em></h2>
+      <h2 data-reveal style="--reveal-delay:100ms">Ad spend in. <em class="accent" data-stats-block><span data-copy="stats.mealjoyRoasRange"></span> out.</em><span class="nojs-alt">Multiples out.</span></h2>
 
       <div class="case__cols">
         <div class="case__block" data-reveal>
@@ -96,6 +97,7 @@
       </div>
 
       <p class="case__receipts" data-stats-block data-reveal>Show-your-work receipts from the launch month: <span data-copy="stats.mealjoyLaunchSpend"></span> in → <span data-copy="stats.mealjoyLaunchReturn"></span> out (<span data-copy="stats.mealjoyLaunchMultiple"></span>), peaking at <span data-copy="stats.mealjoyPeakMultiple"></span> across a <span data-copy="stats.mealjoyPeakWindow"></span> sprint.</p>
+      <p class="nojs-alt">The numbers: a strong multiple on ad spend at launch, revenue more than doubled since.</p>
 
       <figure class="quote" data-reveal>
         <blockquote>“One of the greatest things about Charlie is that he takes the initiative to try new and different things… he’s brought a lot of value to us. Our numbers have more than doubled.”</blockquote>
@@ -109,16 +111,16 @@
     <div class="wrap work-cards">
       <!-- COPY: card-mcgittigan -->
       <article class="work-card" data-reveal>
-        <h3>Jim McGittigan — ex-Gartner analyst</h3>
+        <h2>Jim McGittigan — ex-Gartner analyst</h2>
         <p>Website build: a clean, credible home for a former Gartner analyst’s advisory practice.</p>
-        <p class="pending">[PENDING] — results line when it’s real</p>
+        <p class="pending">In build — numbers published when they’re real</p>
       </article>
       <!-- /COPY -->
       <!-- COPY: card-vividcottage -->
       <article class="work-card" data-reveal style="--reveal-delay:120ms">
-        <h3>Vivid Cottage — local art business</h3>
+        <h2>Vivid Cottage — local art business</h2>
         <p>Email automations: follow-up that turns past buyers into repeat ones.</p>
-        <p class="pending">[PENDING] — results line when it’s real</p>
+        <p class="pending">In build — numbers published when they’re real</p>
       </article>
       <!-- /COPY -->
     </div>
@@ -156,7 +158,7 @@
     <div class="footer__links">
       <a data-copy-mailto data-event="email_click" href="mailto:charlie@charlieanderson.me">charlie@charlieanderson.me</a>
       <a data-copy-href="config.SPOTIFY_URL" href="https://open.spotify.com/show/21qiKQ9A0Dk0hfDmqYaZOF" target="_blank" rel="noopener" data-event="podcast_click" data-event-label="footer">Podcast</a>
-      <span data-optional><a data-copy-href="config.LINKEDIN_URL" href="#" rel="me noopener" target="_blank">LinkedIn</a></span>
+      <span data-optional><a data-copy-href="config.LINKEDIN_URL" href="https://www.linkedin.com/in/charlie-anderson-957988286/" rel="me noopener" target="_blank">LinkedIn</a></span>
       <span data-optional><a data-copy-href="config.IG_URL" href="#" rel="me noopener" target="_blank">Instagram</a></span>
     </div>
     <nav class="footer__nav" aria-label="Footer">
