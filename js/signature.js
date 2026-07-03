@@ -218,6 +218,59 @@
     }
   })();
 
+  /* =========================================================
+     ABOUT — scrub-driven terrain choreography (no pins):
+     strips open with your scroll, photo cards drift, giant
+     ghost numerals counter-drift behind each band.
+     ========================================================= */
+  (function aboutScroll() {
+    if (!document.querySelector(".about-band")) return;
+
+    // terrain strips: the window opens AS you scroll (scrub owns clip + zoom)
+    gsap.utils.toArray(".terrain").forEach(function (strip) {
+      var img = strip.querySelector("img");
+      strip.removeAttribute("data-reveal"); // one-shot CSS steps aside; scrub owns it
+      ScrollTrigger.create({
+        trigger: strip,
+        start: "top 94%",
+        end: "top 30%",
+        scrub: 0.5,
+        onUpdate: function (self) {
+          var p = self.progress;
+          var v = (14 * (1 - p)).toFixed(2) + "% " + (8 * (1 - p)).toFixed(2) + "%";
+          strip.style.clipPath = "inset(" + v + ")";
+          if (img) img.style.scale = (1.18 - 0.18 * p).toFixed(3);
+        },
+      });
+    });
+
+    // band photos drift upward as they travel the viewport (independent `translate`)
+    gsap.utils.toArray(".band-split .portrait").forEach(function (fig) {
+      ScrollTrigger.create({
+        trigger: fig,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+        onUpdate: function (self) {
+          fig.style.setProperty("--drift", ((0.5 - self.progress) * 56).toFixed(1) + "px");
+        },
+      });
+    });
+
+    // ghost numerals: 01–04 slide slowly against the scroll behind each band
+    gsap.utils.toArray(".about-band[data-band-num]").forEach(function (band) {
+      ScrollTrigger.create({
+        trigger: band,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+        onUpdate: function (self) {
+          band.style.setProperty("--num-drift", ((self.progress - 0.5) * 140).toFixed(1) + "px");
+        },
+      });
+    });
+  })();
+
   /* The sections' triggers are built in file order but live in a different DOM
      order — sort by refreshPriority/position, then re-measure so each pin
      accounts for the spacers inserted by the pins before it. */

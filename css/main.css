@@ -904,6 +904,21 @@ html.motion .about-facts[data-reveal].is-in .chip { opacity: 1; transform: none;
 .about-facts .chip:nth-child(5) { --chip-i: 4; }
 .about-facts .chip:nth-child(6) { --chip-i: 5; }
 
+
+/* About scroll choreography — GSAP writes the vars; without it everything is static */
+.band-split .portrait { translate: 0 var(--drift, 0px); }
+.about-band { position: relative; overflow: hidden; }
+.about-band > .wrap { position: relative; }
+.about-band[data-band-num]::before {
+  content: attr(data-band-num);
+  position: absolute; right: -1%; top: 4%;
+  font-family: var(--font-display); font-style: italic; font-weight: 460;
+  font-size: clamp(9rem, 24vw, 22rem); line-height: 1;
+  color: var(--accent); opacity: 0.05;
+  translate: 0 var(--num-drift, 0px);
+  pointer-events: none; user-select: none;
+}
+
 /* portrait (About hero) */
 .page-hero__split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 .band-split { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 4.5vw, 64px); align-items: center; }
