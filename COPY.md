@@ -118,7 +118,11 @@ you a working funnel than a slide deck.` → `More about me →`
 - Fields: Name / Email / Business name / Website URL / Social links (optional) / `What's not working? (1–2 sentences)`
 - Button: `Send it — book my free diagnosis`
 - Under-note: `No retainer pitch. No pressure. The plan is yours either way.`
-- Under form: `Rather just talk? Book the call directly →` (→ {BOOKING_URL})
+- Eyebrow: `The line ends here` (accent — the dot from "There's a line" scrubs in and settles on the section's top rule)
+- "What you get" checklist (left column, hand-drawn checks): `Your whole funnel examined — traffic, site,
+  follow-up, sale` / `A written plan you keep, either way` / `A free call to walk through it — from me, not a bot`
+- Beside checklist: `Rather just talk? Book the call directly →` (→ {BOOKING_URL})
+- Form fields carry mono ledger numbers 01–06 (CSS counters — shared with /book/)
 
 ---
 

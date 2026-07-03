@@ -219,6 +219,28 @@
   })();
 
   /* =========================================================
+     THE CLOSE — the site's line arrives with you and the dot
+     settles at the start of the ask. Callback to "There's a line."
+     ========================================================= */
+  (function leadClose() {
+    var section = document.querySelector(".lead--close");
+    if (!section) return;
+    var dot = section.querySelector(".lead__dot");
+    if (!dot) return;
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 96%",
+      end: "top 40%",
+      scrub: 0.5,
+      onUpdate: function (self) {
+        // travels in from the right, settles at the left gutter
+        var p = self.progress;
+        dot.style.left = "calc(" + (94 * (1 - p)).toFixed(2) + "% + (var(--gut) * " + p.toFixed(3) + "))";
+      },
+    });
+  })();
+
+  /* =========================================================
      ABOUT — scrub-driven terrain choreography (no pins):
      strips open with your scroll, photo cards drift, giant
      ghost numerals counter-drift behind each band.
