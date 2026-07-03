@@ -192,7 +192,7 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
 - `The work has taken me — and the team — around the world: Spain, Italy, Nevada, Texas, and counting. The systems don't care where I sit — the ads
   run, the follow-up sends, the dashboards update, and you can reach me the same way you always do.
   That's the whole point of building systems instead of selling hours.`
-- Photo: Charlie + the team, city night (IMG_2084 → assets/about-range.jpg) · caption `Somewhere without signal`
+- Photo: Charlie + the team, city night (IMG_2084 → assets/about-range.jpg) · caption `Austin, TX, 20 deep`
 
 ### Terrain strips (full-bleed parallax dividers, About only)
 - After band 01: assets/terrain-winter.jpg (AirDropped IMG_5746) · tag `Somewhere in Montana`
