@@ -13,6 +13,16 @@
   }
   gsap.registerPlugin(ScrollTrigger);
 
+  /* iOS Safari: the collapsing URL bar fires resize events mid-scroll, which
+     recalculates every trigger while pinned and breaks the choreography.
+     ignoreMobileResize skips those; normalizeScroll smooths pinned scrubbing
+     on touch devices. */
+  ScrollTrigger.config({ ignoreMobileResize: true });
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    ScrollTrigger.normalizeScroll(true);
+  }
+
+  var MOBILE = window.matchMedia("(max-width: 640px)").matches;
   var EASE_OUT = "expo.out";
   var EASE_SNAP = "back.out(1.8)";
 
@@ -49,7 +59,7 @@
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=280%",
+        end: MOBILE ? "+=220%" : "+=280%", // shorter journey per beat on phones
         scrub: 0.6,
         pin: stage,
         anticipatePin: 1,
@@ -127,7 +137,7 @@
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=210%",
+            end: MOBILE ? "+=170%" : "+=210%",
             scrub: 0.6,
             pin: stage,
             anticipatePin: 1,
@@ -182,22 +192,22 @@
       p.style.strokeDashoffset = len;
     });
 
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top 62%",
-      once: true,
-      onEnter: function () {
-        // machine side: fast, mechanical
-        gsap.fromTo(rows, { autoAlpha: 0, x: -14 }, {
-          autoAlpha: 1, x: 0, duration: 0.28, stagger: 0.09, ease: "power3.out",
-          onComplete: function () { section.classList.add("is-ticking"); },
-        });
-        // human side: slow, organic — strokes draw one by one
-        gsap.to(strokes, {
-          strokeDashoffset: 0, duration: 0.85, stagger: 0.2, ease: "power2.inOut", delay: 0.4,
-        });
-      },
-    });
+    /* IntersectionObserver instead of a ScrollTrigger: immune to the iOS
+       URL-bar resize breaking trigger positions after the pinned sections. */
+    var aiIO = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      aiIO.disconnect();
+      // machine side: fast, mechanical
+      gsap.fromTo(rows, { autoAlpha: 0, x: -14 }, {
+        autoAlpha: 1, x: 0, duration: 0.28, stagger: 0.09, ease: "power3.out",
+        onComplete: function () { section.classList.add("is-ticking"); },
+      });
+      // human side: slow, organic — strokes draw one by one
+      gsap.to(strokes, {
+        strokeDashoffset: 0, duration: 0.85, stagger: 0.14, ease: "power2.inOut", delay: 0.25,
+      });
+    }, { rootMargin: "0px 0px -10% 0px" });
+    aiIO.observe(section);
 
     // hover with intent: the machine speeds up when you look at it
     if (machinePane && window.matchMedia("(hover: hover)").matches) {
