@@ -105,7 +105,41 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
 
       <div class="diag-wrap">
         <!-- desktop / landscape diagram -->
-        <svg class="diag diag--h" viewBox="0 0 1200 560" role="img" aria-label="Funnel diagram: traffic to website to follow-up to sale. A scan finds the weak points, then the plan draws in the fixes.">
+        <svg class="diag diag--h" viewBox="0 0 1200 640" role="img" aria-label="Funnel diagram: ad platforms feed traffic, into the website, into follow-up channels, into the sale. A scan finds the weak points, then the plan draws in the fixes.">
+          <!-- feeds: what flows into each stage -->
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M84,178 L144,260"/>
+            <path class="diag__feedline" d="M128,178 L148,260"/>
+            <path class="diag__feedline" d="M172,178 L152,260"/>
+            <path class="diag__feedline" d="M216,178 L156,260"/>
+            <g class="diag__chip"><rect x="66" y="140" width="36" height="36" rx="9"/><text class="diag__glyph" x="84" y="166">f</text></g>
+            <g class="diag__chip"><rect x="110" y="140" width="36" height="36" rx="9"/><rect x="119" y="149" width="18" height="18" rx="5.5"/><circle cx="128" cy="158" r="4.4"/><circle cx="133.6" cy="152.4" r="1.2"/></g>
+            <g class="diag__chip"><rect x="154" y="140" width="36" height="36" rx="9"/><rect x="161" y="150" width="22" height="16" rx="5"/><path class="ico-fill" d="M169.5,154.5 L176,158 L169.5,161.5 Z"/></g>
+            <g class="diag__chip"><rect x="198" y="140" width="36" height="36" rx="9"/><text class="diag__glyph" x="216" y="165">G</text></g>
+          </g>
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M405,178 L444,260"/>
+            <path class="diag__feedline" d="M503,178 L456,260"/>
+            <g class="diag__chip"><rect x="340" y="140" width="130" height="36" rx="9"/><text x="405" y="163">conversion rate</text></g>
+            <g class="diag__chip"><rect x="478" y="140" width="50" height="36" rx="9"/><text x="503" y="163">SEO</text></g>
+          </g>
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M684,178 L744,260"/>
+            <path class="diag__feedline" d="M750,178 L750,260"/>
+            <path class="diag__feedline" d="M816,178 L756,260"/>
+            <g class="diag__chip"><rect x="666" y="140" width="36" height="36" rx="9"/><rect x="673" y="149" width="22" height="17" rx="3"/><path d="M673,151 L684,159 L695,151"/></g>
+            <g class="diag__chip"><rect x="732" y="140" width="36" height="36" rx="9"/><path d="M739,150 h22 a2,2 0 0 1 2,2 v9 a2,2 0 0 1 -2,2 h-13 l-6,5 v-5 h-3 a2,2 0 0 1 -2,-2 v-9 a2,2 0 0 1 2,-2 Z"/><circle cx="745" cy="156.5" r="1.1"/><circle cx="750" cy="156.5" r="1.1"/><circle cx="755" cy="156.5" r="1.1"/></g>
+            <g class="diag__chip"><rect x="798" y="140" width="36" height="36" rx="9"/><circle cx="816" cy="158" r="7.5"/><circle cx="816" cy="158" r="2.2"/><path d="M816,146 v5 M816,165 v5 M804,158 h5 M823,158 h5"/></g>
+          </g>
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M984,178 L1044,260"/>
+            <path class="diag__feedline" d="M1057,178 L1051,260"/>
+            <path class="diag__feedline" d="M1131,178 L1056,260"/>
+            <g class="diag__chip"><rect x="948" y="140" width="72" height="36" rx="9"/><text x="984" y="163">pricing</text></g>
+            <g class="diag__chip"><rect x="1028" y="140" width="58" height="36" rx="9"/><text x="1057" y="163">offers</text></g>
+            <g class="diag__chip"><rect x="1094" y="140" width="74" height="36" rx="9"/><text x="1131" y="163">bundles</text></g>
+          </g>
+
           <path class="diag__link" d="M238,300 C300,300 300,300 362,300"/>
           <path class="diag__link" d="M538,300 C600,300 600,300 662,300"/>
           <path class="diag__link" d="M838,300 C900,300 900,300 962,300"/>
@@ -115,35 +149,68 @@ fbq('init', '[META_PIXEL_ID]'); fbq('track', 'PageView');
           <g class="diag__node"><rect x="662" y="268" width="176" height="64" rx="10"/><text x="750" y="305">FOLLOW-UP</text></g>
           <g class="diag__node"><rect x="962" y="268" width="176" height="64" rx="10"/><text x="1050" y="305">SALE</text></g>
 
-          <g class="diag__weak"><line x1="300" y1="308" x2="300" y2="392"/><rect x="160" y="392" width="280" height="42" rx="8"/><text x="300" y="418">ads pointed at the homepage</text></g>
-          <g class="diag__weak"><line x1="450" y1="336" x2="450" y2="464"/><rect x="380" y="464" width="140" height="42" rx="8"/><text x="450" y="490">no tracking</text></g>
-          <g class="diag__weak"><line x1="600" y1="308" x2="600" y2="392"/><rect x="510" y="392" width="180" height="42" rx="8"/><text x="600" y="418">leads go cold</text></g>
+          <g class="diag__weak"><line x1="300" y1="308" x2="300" y2="392"/><rect x="180" y="392" width="240" height="42" rx="8"/><text x="300" y="418">same message for everyone</text></g>
+          <g class="diag__weak"><line x1="450" y1="336" x2="450" y2="436"/><rect x="380" y="436" width="140" height="42" rx="8"/><text x="450" y="462">no tracking</text></g>
+          <g class="diag__weak"><line x1="900" y1="308" x2="900" y2="392"/><rect x="810" y="392" width="180" height="42" rx="8"/><text x="900" y="418">leads go cold</text></g>
 
-          <g class="diag__fix"><path d="M300,258 C300,214 300,214 300,192"/><rect class="diag__fixlabel" x="150" y="148" width="300" height="42" rx="8"/><text x="300" y="174">landing page matches the ad</text></g>
-          <g class="diag__fix"><path d="M520,258 C520,190 520,190 520,120"/><rect class="diag__fixlabel" x="446" y="76" width="148" height="42" rx="8"/><text x="520" y="102">tracking wired</text></g>
-          <g class="diag__fix"><path d="M820,258 C820,214 820,214 820,192"/><rect class="diag__fixlabel" x="702" y="148" width="236" height="42" rx="8"/><text x="820" y="174">follow-up that sells</text></g>
+          <g class="diag__fix"><path d="M300,434 L300,482"/><rect class="diag__fixlabel" x="158" y="482" width="284" height="42" rx="8"/><text x="300" y="508">message matches where they are</text></g>
+          <g class="diag__fix"><path d="M450,478 L450,538"/><rect class="diag__fixlabel" x="366" y="538" width="168" height="42" rx="8"/><text x="450" y="564">tracking wired</text></g>
+          <g class="diag__fix"><path d="M900,434 L900,478"/><rect class="diag__fixlabel" x="796" y="478" width="208" height="42" rx="8"/><text x="900" y="504">follow-up that sells</text></g>
 
-          <g class="diag__scan"><line class="diag__scanglow" x1="0" y1="60" x2="0" y2="530"/><line x1="0" y1="60" x2="0" y2="530"/></g>
+          <g class="diag__scan"><line class="diag__scanglow" x1="0" y1="110" x2="0" y2="600"/><line x1="0" y1="110" x2="0" y2="600"/></g>
         </svg>
 
         <!-- mobile / portrait diagram: spine on the left, tags in a clean right-hand column -->
-        <svg class="diag diag--v" viewBox="0 0 400 800" role="img" aria-label="Funnel diagram: traffic to website to follow-up to sale, with weak points and fixes.">
-          <path class="diag__link" d="M100,72 L100,248"/>
-          <path class="diag__link" d="M100,304 L100,480"/>
-          <path class="diag__link" d="M100,536 L100,712"/>
+        <svg class="diag diag--v" viewBox="0 0 400 800" role="img" aria-label="Funnel diagram: ad platforms feed traffic, into the website, into follow-up channels, into the sale, with weak points and fixes.">
+          <path class="diag__link" d="M100,116 L100,288"/>
+          <path class="diag__link" d="M100,340 L100,512"/>
+          <path class="diag__link" d="M100,564 L100,736"/>
 
-          <g class="diag__node"><rect x="20" y="16" width="160" height="56" rx="9"/><text x="100" y="51">TRAFFIC</text></g>
-          <g class="diag__node"><rect x="20" y="248" width="160" height="56" rx="9"/><text x="100" y="283">WEBSITE</text></g>
-          <g class="diag__node"><rect x="20" y="480" width="160" height="56" rx="9"/><text x="100" y="515">FOLLOW-UP</text></g>
-          <g class="diag__node"><rect x="20" y="712" width="160" height="56" rx="9"/><text x="100" y="747">SALE</text></g>
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M38,52 L88,64"/>
+            <path class="diag__feedline" d="M82,52 L96,64"/>
+            <path class="diag__feedline" d="M126,52 L104,64"/>
+            <path class="diag__feedline" d="M170,52 L112,64"/>
+            <g class="diag__chip"><rect x="20" y="16" width="36" height="36" rx="9"/><text class="diag__glyph" x="38" y="42">f</text></g>
+            <g class="diag__chip"><rect x="64" y="16" width="36" height="36" rx="9"/><rect x="73" y="25" width="18" height="18" rx="5.5"/><circle cx="82" cy="34" r="4.4"/><circle cx="87.6" cy="28.4" r="1.2"/></g>
+            <g class="diag__chip"><rect x="108" y="16" width="36" height="36" rx="9"/><rect x="115" y="26" width="22" height="16" rx="5"/><path class="ico-fill" d="M123.5,30.5 L130,34 L123.5,37.5 Z"/></g>
+            <g class="diag__chip"><rect x="152" y="16" width="36" height="36" rx="9"/><text class="diag__glyph" x="170" y="41">G</text></g>
+          </g>
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M72,276 L92,288"/>
+            <path class="diag__feedline" d="M155,276 L108,288"/>
+            <g class="diag__chip"><rect x="20" y="240" width="104" height="36" rx="9"/><text x="72" y="263">conversion</text></g>
+            <g class="diag__chip"><rect x="132" y="240" width="46" height="36" rx="9"/><text x="155" y="263">SEO</text></g>
+          </g>
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M38,500 L88,512"/>
+            <path class="diag__feedline" d="M82,500 L96,512"/>
+            <path class="diag__feedline" d="M126,500 L104,512"/>
+            <g class="diag__chip"><rect x="20" y="464" width="36" height="36" rx="9"/><rect x="27" y="473" width="22" height="17" rx="3"/><path d="M27,475 L38,483 L49,475"/></g>
+            <g class="diag__chip"><rect x="64" y="464" width="36" height="36" rx="9"/><path d="M71,474 h22 a2,2 0 0 1 2,2 v9 a2,2 0 0 1 -2,2 h-13 l-6,5 v-5 h-3 a2,2 0 0 1 -2,-2 v-9 a2,2 0 0 1 2,-2 Z"/><circle cx="77" cy="480.5" r="1.1"/><circle cx="82" cy="480.5" r="1.1"/><circle cx="87" cy="480.5" r="1.1"/></g>
+            <g class="diag__chip"><rect x="108" y="464" width="36" height="36" rx="9"/><circle cx="126" cy="482" r="7.5"/><circle cx="126" cy="482" r="2.2"/><path d="M126,470 v5 M126,489 v5 M114,482 h5 M133,482 h5"/></g>
+          </g>
+          <g class="diag__feed">
+            <path class="diag__feedline" d="M57,724 L92,736"/>
+            <path class="diag__feedline" d="M133,724 L102,736"/>
+            <path class="diag__feedline" d="M210,724 L110,736"/>
+            <g class="diag__chip"><rect x="20" y="688" width="74" height="36" rx="9"/><text x="57" y="711">pricing</text></g>
+            <g class="diag__chip"><rect x="102" y="688" width="62" height="36" rx="9"/><text x="133" y="711">offers</text></g>
+            <g class="diag__chip"><rect x="172" y="688" width="76" height="36" rx="9"/><text x="210" y="711">bundles</text></g>
+          </g>
 
-          <g class="diag__weak"><line x1="100" y1="124" x2="196" y2="124"/><rect x="196" y="104" width="180" height="40" rx="8"/><text x="286" y="129">ads → homepage</text></g>
-          <g class="diag__weak"><line x1="100" y1="356" x2="230" y2="356"/><rect x="230" y="336" width="146" height="40" rx="8"/><text x="303" y="361">no tracking</text></g>
-          <g class="diag__weak"><line x1="100" y1="588" x2="216" y2="588"/><rect x="216" y="568" width="166" height="40" rx="8"/><text x="299" y="593">leads go cold</text></g>
+          <g class="diag__node"><rect x="20" y="64" width="160" height="52" rx="9"/><text x="100" y="96">TRAFFIC</text></g>
+          <g class="diag__node"><rect x="20" y="288" width="160" height="52" rx="9"/><text x="100" y="320">WEBSITE</text></g>
+          <g class="diag__node"><rect x="20" y="512" width="160" height="52" rx="9"/><text x="100" y="544">FOLLOW-UP</text></g>
+          <g class="diag__node"><rect x="20" y="736" width="160" height="52" rx="9"/><text x="100" y="768">SALE</text></g>
 
-          <g class="diag__fix"><path d="M100,196 L172,196"/><rect class="diag__fixlabel" x="172" y="176" width="218" height="40" rx="8"/><text x="281" y="201">page matches the ad</text></g>
-          <g class="diag__fix"><path d="M100,428 L216,428"/><rect class="diag__fixlabel" x="216" y="408" width="166" height="40" rx="8"/><text x="299" y="433">tracking wired</text></g>
-          <g class="diag__fix"><path d="M100,660 L160,660"/><rect class="diag__fixlabel" x="160" y="640" width="230" height="40" rx="8"/><text x="275" y="665">follow-up that sells</text></g>
+          <g class="diag__weak"><line x1="100" y1="150" x2="182" y2="150"/><rect x="182" y="130" width="212" height="40" rx="8"/><text x="288" y="155">same message for all</text></g>
+          <g class="diag__weak"><line x1="100" y1="374" x2="232" y2="374"/><rect x="232" y="354" width="146" height="40" rx="8"/><text x="305" y="379">no tracking</text></g>
+          <g class="diag__weak"><line x1="100" y1="598" x2="218" y2="598"/><rect x="218" y="578" width="164" height="40" rx="8"/><text x="300" y="603">leads go cold</text></g>
+
+          <g class="diag__fix"><path d="M288,170 L288,182"/><rect class="diag__fixlabel" x="180" y="182" width="216" height="40" rx="8"/><text x="288" y="207">message matches them</text></g>
+          <g class="diag__fix"><path d="M305,394 L305,406"/><rect class="diag__fixlabel" x="222" y="406" width="166" height="40" rx="8"/><text x="305" y="431">tracking wired</text></g>
+          <g class="diag__fix"><path d="M296,618 L296,630"/><rect class="diag__fixlabel" x="184" y="630" width="216" height="40" rx="8"/><text x="296" y="655">follow-up that sells</text></g>
 
           <g class="diag__scan"><line class="diag__scanglow" x1="10" y1="0" x2="390" y2="0"/><line x1="10" y1="0" x2="390" y2="0"/></g>
         </svg>

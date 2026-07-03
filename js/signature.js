@@ -98,6 +98,12 @@
   (function diagnosis() {
     var section = document.querySelector(".sig-diag");
     if (!section) return;
+    // short phones (SE / 8 Plus class): the stage head + kicker leave <300px for the diagram —
+    // pinned text would be illegible, so serve the static ledger diagram instead of the show
+    if (window.matchMedia("(max-width: 720px) and (max-height: 760px)").matches) {
+      section.classList.add("sig-diag--static");
+      return;
+    }
     var stage = section.querySelector(".sig-diag__stage");
 
     var mm = gsap.matchMedia();
@@ -138,7 +144,7 @@
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: MOBILE ? "+=170%" : "+=210%",
+            end: ctx.conditions.desktop ? "+=210%" : "+=170%", // matches the SVG-variant breakpoint, not the global MOBILE one
             scrub: 0.6,
             pin: stage,
             anticipatePin: 1,
@@ -147,30 +153,51 @@
           },
         });
 
-        // Assemble the funnel
+        // Assemble the funnel: sources pop in, flow down, the stage lands, the rail continues
+        var feeds = gsap.utils.toArray(svg.querySelectorAll(".diag__feed"));
+        feeds.forEach(function (feed) {
+          gsap.set(feed.querySelectorAll(".diag__chip"), { autoAlpha: 0, y: -10 });
+          gsap.set(feed.querySelectorAll(".diag__feedline"), { autoAlpha: 0 });
+        });
         nodes.forEach(function (n, i) {
-          tl.to(n, { autoAlpha: 1, scale: 1, duration: 0.22, ease: EASE_SNAP }, i * 0.28);
-          if (links[i]) tl.to(links[i], { strokeDashoffset: 0, duration: 0.24 }, i * 0.28 + 0.16);
+          var t = i * 0.34;
+          var feed = feeds[i];
+          if (feed) {
+            tl.to(feed.querySelectorAll(".diag__chip"), { autoAlpha: 1, y: 0, duration: 0.14, stagger: 0.045, ease: EASE_SNAP }, t)
+              .to(feed.querySelectorAll(".diag__feedline"), { autoAlpha: 0.75, duration: 0.14, stagger: 0.03 }, t + 0.1);
+          }
+          tl.to(n, { autoAlpha: 1, scale: 1, duration: 0.2, ease: EASE_SNAP }, t + 0.3); // after the last chip's pop resolves — sources arrive before the stage lands
+          if (links[i]) tl.to(links[i], { strokeDashoffset: 0, duration: 0.2 }, t + 0.4);
         });
 
         // The scan pass — leaks light up as the beam crosses them
-        tl.set(scan, { autoAlpha: 1 }, 1.35)
-          .fromTo(scan, scanAxis.from, Object.assign({ duration: 1.0, ease: "power1.inOut" }, scanAxis.to), 1.35);
-        weaks.forEach(function (w, i) {
-          tl.to(w, { autoAlpha: 1, duration: 0.12 }, 1.5 + i * 0.28)
-            .add(function () { w.classList.add("is-pulsing"); }, 1.5 + i * 0.28);
+        tl.set(scan, { autoAlpha: 1 }, 1.75)
+          .fromTo(scan, scanAxis.from, Object.assign({ duration: 1.0, ease: "power1.inOut" }, scanAxis.to), 1.75);
+        // each leak lights up as the beam actually reaches it: invert the scan ease at the leak's position
+        var scanEase = gsap.parseEase("power1.inOut");
+        var scanLen = ctx.conditions.desktop ? svg.viewBox.baseVal.width : svg.viewBox.baseVal.height;
+        weaks.forEach(function (w) {
+          var rect = w.querySelector("rect");
+          var pos = ctx.conditions.desktop
+            ? rect.x.baseVal.value + rect.width.baseVal.value / 2
+            : rect.y.baseVal.value;
+          var p = 0;
+          while (p < 1 && scanEase(p) < pos / scanLen) p += 0.01;
+          var at = Math.max(1.85, 1.75 + p - 0.05);
+          tl.to(w, { autoAlpha: 1, duration: 0.12 }, at)
+            .add(function () { w.classList.add("is-pulsing"); }, at);
         });
-        tl.to(scan, { autoAlpha: 0, duration: 0.1 }, 2.4);
+        tl.to(scan, { autoAlpha: 0, duration: 0.1 }, 2.8);
 
         // The plan draws itself in
         fixes.forEach(function (g, i) {
           var strokes = g.querySelectorAll("path, line");
           var labels = g.querySelectorAll("text, .diag__fixlabel");
-          tl.to(strokes, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.5 + i * 0.22)
-            .to(labels, { autoAlpha: 1, duration: 0.18 }, 2.62 + i * 0.22);
+          tl.to(strokes, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.9 + i * 0.22)
+            .to(labels, { autoAlpha: 1, duration: 0.18 }, 3.02 + i * 0.22);
         });
-        tl.add(function () { section.classList.add("is-diagnosed"); }, 3.1)
-          .to(kicker, { autoAlpha: 1, y: 0, duration: 0.3, ease: EASE_OUT }, 3.15)
+        tl.add(function () { section.classList.add("is-diagnosed"); }, 3.7) // after the LAST fix finishes drawing (~3.64) — the leaks dim only once every fix has landed
+          .to(kicker, { autoAlpha: 1, y: 0, duration: 0.3, ease: EASE_OUT }, 3.75)
           .to({}, { duration: 0.25 });
 
         return function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); };

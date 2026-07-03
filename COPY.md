@@ -83,8 +83,13 @@ Section order: hero → Diagnosis (pinned) → Podcast → There's a line (pinne
   and grow the business.`
 - Kicker: `The plan and the call are free. I only charge if you want my help implementing it.`
 - Diagram labels (illustrative, not claims): nodes `TRAFFIC → WEBSITE → FOLLOW-UP → SALE`;
-  weak-point tags `ads pointed at the homepage` / `no tracking` / `leads go cold`;
-  fix tags `landing page matches the ad` / `tracking wired` / `follow-up that sells`.
+  feed chips above each node — TRAFFIC: Facebook / Instagram / YouTube / Google emblems (ink-stroke
+  icons, no brand colors); WEBSITE: `conversion rate` / `SEO`; FOLLOW-UP: email / SMS / retargeting-pixel
+  icons; SALE: `pricing` / `offers` / `bundles`;
+  weak-point tags `same message for everyone` / `no tracking` / `leads go cold`
+  (mobile shortens the first to `same message for all`);
+  fix tags `message matches where they are` / `tracking wired` / `follow-up that sells`
+  (mobile shortens the first to `message matches them`).
 
 ### COPY: ai-split  (signature section 3 — Pillar 3)
 - Heading: `Where AI helps. Where it hurts.`
