@@ -16,6 +16,19 @@
   var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   window.__motionOK = !REDUCED;
 
+  /* ---------- always start at the top ----------
+     The scroll story only makes sense from the beginning: refreshing or reopening the
+     tab mid-page dropped visitors inside a pinned section. scrollRestoration=manual is
+     set inline in <head> (must run before the browser restores); this corrects the
+     late restores Safari does anyway, incl. back-forward-cache returns. Anchor links
+     (#free-diagnosis etc.) keep their native jump. */
+  if (!location.hash) {
+    window.scrollTo(0, 0);
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted) window.scrollTo(0, 0);
+    });
+  }
+
   function get(path) {
     return path.split(".").reduce(function (o, k) { return o && o[k]; }, COPY);
   }
