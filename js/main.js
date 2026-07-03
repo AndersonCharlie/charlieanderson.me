@@ -156,6 +156,30 @@
     next();
   });
 
+
+  /* terrain drift: strip images pan slowly while on screen (transform-only, rAF-throttled) */
+  var plax = Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+  if (plax.length && !REDUCED) {
+    var plaxQueued = false;
+    var plaxUpdate = function () {
+      plaxQueued = false;
+      var vh = window.innerHeight;
+      plax.forEach(function (img) {
+        var r = img.parentNode.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > vh + 80) return;
+        var p = (r.top + r.height / 2 - vh / 2) / vh;
+        img.style.transform = "translateY(" + (p * -14).toFixed(2) + "%)";
+      });
+    };
+    window.addEventListener("scroll", function () {
+      if (!plaxQueued) { plaxQueued = true; requestAnimationFrame(plaxUpdate); }
+    }, { passive: true });
+    plax.forEach(function (img) {
+      if (!img.complete) img.addEventListener("load", plaxUpdate, { once: true });
+    });
+    plaxUpdate();
+  }
+
   /* ---------- lead form: fetch POST, mailto fallback ---------- */
   document.querySelectorAll("[data-lead-form]").forEach(function (form) {
     form.addEventListener("submit", function (e) {

@@ -156,7 +156,8 @@ repeat ones.` / status line: `In build — numbers published when they're real`
 - Eyebrow: `The range so far` · Heading: `Different businesses. Same four gears.`
 - Ledger rows: `01 Pest control company — SEO + website` / `02 NYC flooring company — custom lead-gen
   software build` / `03 Relationship-counseling brand — full-funnel launch, alongside a large team` /
-  `04 Local practices of all stripes — consultations and funnel diagnoses`
+  `04 Career-development offer — full-funnel setup` / `05 Seven-figure companies — consulting, names
+  withheld` / `06 Local practices of all stripes — consultations and funnel diagnoses`
 
 ### COPY: work-cta
 `Want numbers like these with your name on them?` / `Start where every one of these projects started: a
@@ -180,15 +181,19 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   all day; I like being outside, competing, and hanging out with good people. Point is: I'm a normal guy
   you'll actually enjoy working with — who happens to be serious about what he does.`
 - Chips: `Daily gym` / `Boxer` / `Climber` / `Skier` / `Marathon in training`
-- Photo: REMOVED pending Charlie's exact ski selfie (AirDrop → slot marked SWAP in HTML)
+- Photo: ski selfie, AirDropped 102_0548 (assets/about-ski.jpg) · caption `Between runs`
 
 ### COPY: about-adventure
-- Eyebrow: `02 — The range` · Heading: `Spain. Italy. Germany in October. Your numbers won't notice.`
-- `Since I started, the work has taken me — and the team — around the world: Spain, Italy, Germany this
-  October for Oktoberfest, Nevada, Texas, and counting. The systems don't care where I sit — the ads
+- Eyebrow: `02 — The range` · Heading: `Spain. Italy. Texas. Your numbers won't notice.`
+- `The work has taken me — and the team — around the world: Spain, Italy, Nevada, Texas, and counting. The systems don't care where I sit — the ads
   run, the follow-up sends, the dashboards update, and you can reach me the same way you always do.
   That's the whole point of building systems instead of selling hours.`
 - Photo: mountain overlook, seated on the rock (assets/about-range.jpg) · caption `Somewhere with signal`
+
+### Terrain strips (full-bleed parallax dividers, About only)
+- After band 01: assets/terrain-winter.jpg (AirDropped IMG_5746) · tag `Somewhere in Montana`
+- Before band 04: assets/terrain-valley.jpg (AirDropped IMG_8300) · tag `Worth the climb`
+- Spares Charlie provided, unused for now: IMG_5744 (portrait ski action), IMG_8333 (seated overlook).
 
 ### COPY: about-team
 - Eyebrow: `03 — The team` · Heading: `Small team. No interns.`
@@ -206,7 +211,7 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   worth doing, it's worth doing properly. A $25 gig worker gets paid the second the task is marked
   complete, whether it worked or not. I get paid when it works — when your numbers move.`
   (hand underline on "when your numbers move.")
-- Photo: REMOVED pending Charlie's exact beanie shot (AirDrop → slot marked SWAP in HTML)
+- Photo: beanie ridge shot, AirDropped 102_0471 (assets/about-warning.jpg) · caption `Comes with the standard`
 
 ### COPY: about-cta
 `Let's see what your numbers could look like.` / `The diagnosis is free: your whole funnel, the
