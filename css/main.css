@@ -512,11 +512,13 @@ html:not(.motion) .diag { max-height: none; }
 
 @media (max-width: 720px) {
   .diag--h { display: none; }
-  .diag--v { display: block; }
-  .diag__node text { font-size: 19px; }
-  .diag__weak text, .diag__fix text { font-size: 17px; }
-  .diag-wrap { flex: none; margin-block: clamp(24px, 4vh, 40px); }
-  .diag { max-height: 44svh; }
+  .diag--v { display: block; max-width: min(400px, 88vw); }
+  .diag__node text { font-size: 21px; }
+  .diag__weak text, .diag__fix text { font-size: 18px; }
+  .diag-wrap { flex: none; margin-block: clamp(18px, 3vh, 32px); }
+  .diag { max-height: 50svh; }
+  .sig-diag__stage { padding-top: 72px; }
+  .sig-diag__head p { font-size: 0.95rem; }
   .sig-diag__kicker { margin-top: clamp(20px, 3vh, 32px); }
 }
 @media (max-width: 640px) {

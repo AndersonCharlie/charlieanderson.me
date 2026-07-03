@@ -185,18 +185,18 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   all day; I like being outside, competing, and hanging out with good people. Point is: I'm a normal guy
   you'll actually enjoy working with — who happens to be serious about what he does.`
 - Chips: `Daily gym` / `Boxer` / `Climber` / `Skier` / `Marathon in training`
-- Photo: ski selfie, AirDropped 102_0548 (assets/about-ski.jpg) · caption `Between runs`
+- Photo: ski selfie, AirDropped 102_0548 (assets/about-ski.webp) · caption `Between runs`
 
 ### COPY: about-adventure
 - Eyebrow: `02 — The range` · Heading: `Spain. Italy. Texas. Your numbers won't notice.`
 - `The work has taken me — and the team — around the world: Spain, Italy, Nevada, Texas, and counting. The systems don't care where I sit — the ads
   run, the follow-up sends, the dashboards update, and you can reach me the same way you always do.
   That's the whole point of building systems instead of selling hours.`
-- Photo: Charlie + the team, city night (IMG_2084 → assets/about-range.jpg) · caption `Austin, TX, 20 deep`
+- Photo: Charlie + the team, city night (IMG_2084 → assets/about-range.webp) · caption `Austin, TX, 20 deep`
 
 ### Terrain strips (full-bleed parallax dividers, About only)
-- After band 01: assets/terrain-winter.jpg (AirDropped IMG_5746) · tag `Somewhere in Montana`
-- Before band 04: assets/terrain-valley.jpg (AirDropped IMG_8300) · tag `Worth the climb`
+- After band 01: assets/terrain-winter.webp (AirDropped IMG_5746) · tag `Somewhere in Montana`
+- Before band 04: assets/terrain-valley.webp (AirDropped IMG_8300) · tag `Worth the climb`
 - Spares Charlie provided, unused for now: IMG_5744 (portrait ski action), IMG_8333 (seated overlook).
 
 ### COPY: about-team
@@ -215,7 +215,7 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   worth doing, it's worth doing properly. A $25 gig worker gets paid the second the task is marked
   complete, whether it worked or not. I get paid when it works — when your numbers move.`
   (hand underline on "when your numbers move.")
-- Photo: beanie ridge shot, AirDropped 102_0471 (assets/about-warning.jpg) · caption `Comes with the standard`
+- Photo: beanie ridge shot, AirDropped 102_0471 (assets/about-warning.webp) · caption `Comes with the standard`
 
 ### COPY: about-cta
 `Let's see what your numbers could look like.` / `The diagnosis is free: your whole funnel, the
