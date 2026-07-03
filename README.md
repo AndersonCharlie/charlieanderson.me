@@ -59,6 +59,8 @@ python3 -m http.server 8471   # from this folder
 ```
 index.html            Home (hero + 3 signature scroll sections + proof + form)
 work/ about/ book/    subpages     404.html
+call/                 booking page (see BOOKING.md)
+api/                  booking backend (Vercel functions; see BOOKING.md)
 css/main.css          all styles (design tokens at top)
 js/copy.js            ← THE single source for numbers/claims/config
 js/main.js            copy injection, reveals, nav, forms, analytics events
@@ -68,3 +70,5 @@ DECISIONS.md COPY.md HANDOFF.md QA-REPORT.md   docs
 comps/                the two hero art-direction studies (reference only)
 _legacy/              pre-June-17 single-file draft (reference only)
 ```
+
+Booking page setup, env vars, and deploy notes: **BOOKING.md**.

@@ -943,3 +943,226 @@ html.motion [data-reveal].is-in .u-h1w path {
   html.js [data-reveal], html.js .hline__in { opacity: 1; transform: none; }
   html.motion .ai-ticker li { opacity: 1; }
 }
+
+/* --- Booking page (/call/) --- */
+
+/* State containers toggle via the hidden attribute; several also set
+   display, which would otherwise beat the UA's [hidden] rule. */
+[id^="booking-"][hidden] {
+  display: none !important;
+}
+
+/* Section spacing — mirrors standard section pattern */
+.booking-section {
+  padding-block: var(--sect);
+  border-top: 1px solid var(--hair);
+}
+
+/* No-JS fallback block */
+.booking-nojs {
+  max-width: 52ch;
+  color: var(--ink-soft);
+  padding-block: clamp(24px, 4vh, 48px);
+}
+
+/* Loading state */
+.booking-loading {
+  padding-block: clamp(32px, 5vh, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.booking-loading .eyebrow {
+  margin: 0;
+  animation: bookingPulse 1.4s ease-in-out infinite;
+}
+.booking-loading__dots {
+  display: flex;
+  gap: 8px;
+}
+.booking-loading__dots span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.3;
+  animation: bookingDot 1.2s var(--ease-io) infinite;
+}
+.booking-loading__dots span:nth-child(2) { animation-delay: 0.18s; }
+.booking-loading__dots span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes bookingDot {
+  0%, 80%, 100% { opacity: 0.3; transform: none; }
+  40% { opacity: 1; transform: translateY(-4px); }
+}
+@keyframes bookingPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .booking-loading .eyebrow { animation: none; opacity: 1; }
+  .booking-loading__dots span { animation: none; opacity: 0.6; }
+}
+
+/* Error / empty states */
+.booking-error,
+.booking-empty {
+  padding-block: clamp(28px, 4vh, 48px);
+  max-width: 52ch;
+}
+.booking-error__msg,
+.booking-empty__msg {
+  color: var(--ink-soft);
+  font-size: 1.0625rem;
+}
+
+/* Timezone notice */
+.booking-tz {
+  margin-bottom: clamp(20px, 3vh, 32px);
+  color: var(--muted);
+}
+
+/* Section sub-labels (eyebrow above day/slot areas) */
+.booking-section-label {
+  margin-bottom: 14px;
+}
+
+/* Day picker — horizontal scroll on small viewports, wrapping on large */
+.booking-days-wrap {
+  margin-bottom: clamp(28px, 4vh, 48px);
+}
+.booking-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* chip overrides for interactive day/slot buttons */
+.booking-day-chip,
+.booking-slot-chip {
+  /* remove default display:block from .chip */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  /* override .chip:first-of-type accent rule — we control state via .is-selected */
+  border-color: var(--hair) !important;
+  color: var(--ink) !important;
+  transition:
+    border-color 0.25s var(--ease-out),
+    color 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out),
+    transform 0.2s var(--ease-out);
+  white-space: nowrap;
+  min-width: 68px;
+}
+.booking-day-chip:hover,
+.booking-slot-chip:hover {
+  border-color: var(--ink) !important;
+  color: var(--ink) !important;
+  transform: translateY(-1px);
+}
+.booking-day-chip.is-selected,
+.booking-slot-chip.is-selected {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+.booking-day-chip:focus-visible,
+.booking-slot-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* Slot grid */
+.booking-slots-wrap {
+  margin-bottom: clamp(16px, 2vh, 24px);
+}
+.booking-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 10px;
+}
+.booking-slots-empty {
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* 409 slot-taken notice */
+.booking-slot-taken {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+/* Form section — dark band; mirrors .lead exactly */
+.booking-form-section {
+  /* inherits .lead styles */
+}
+/* Selected time label inside form sub-text */
+.booking-selected-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark-muted);
+  margin-top: 8px;
+}
+
+/* Form action row: submit + back button side by side */
+.booking-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+.booking-back-btn {
+  /* light ghost button on the dark band */
+  background: transparent;
+  border-color: var(--dark-hair);
+  color: var(--dark-muted);
+  font-size: 0.9rem;
+  padding: 14px 22px;
+  cursor: pointer;
+  transition:
+    color 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out);
+}
+.booking-back-btn::before { background: transparent; }
+.booking-back-btn:hover {
+  color: var(--dark-type);
+  border-color: var(--dark-muted);
+  transform: none;
+}
+
+/* Confirmation section — also a dark band */
+.booking-confirm {
+  /* inherits .lead dark-band styles */
+}
+.booking-confirm__eyebrow {
+  color: var(--dark-accent);
+}
+.booking-confirm-note {
+  margin-top: 14px;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .booking-days { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .booking-days::-webkit-scrollbar { height: 4px; }
+  .booking-days::-webkit-scrollbar-track { background: transparent; }
+  .booking-days::-webkit-scrollbar-thumb { background: var(--hair); border-radius: 2px; }
+  .booking-slots { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); }
+  .booking-form-actions { gap: 12px; }
+  .booking-back-btn { font-size: 0.85rem; padding: 12px 18px; }
+}
+

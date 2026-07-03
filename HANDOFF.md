@@ -56,9 +56,13 @@ Meta Pixel is a commented block in index.html waiting for `[META_PIXEL_ID]`.
    FIRST submission triggers a one-time activation email; Charlie must click it once.
 2. **DNS** — site is deployed on GitHub Pages with the custom domain configured; Charlie must add
    the DNS records at his registrar (table in README.md), then enable "Enforce HTTPS".
-3. Testimonials — `[PENDING]` slots on `/` and `/work/` (one each). Real quotes only.
-4. `[LINKEDIN_URL]`, `[IG_URL]` in copy.js (footer links stay hidden until set). Verify the Calendly
-   slug (charlie-interviews) is the client-facing event, not a hiring calendar.
+3. ~~Testimonials~~ DONE — Sergio's real quotes (transcribed from his video) live on `/` and `/work/`.
+4. LinkedIn is live in copy.js; `[IG_URL]` still placeholder (Charlie has no Instagram yet). Calendly
+   slug confirmed by Charlie.
+5. **PHOTO POLICY (hard rule from Charlie): only use images he explicitly provides — never pull from
+   his files/camera roll without asking.** Currently pending from him via AirDrop: the boxing-ring
+   photo (discipline band), the rock-overlook photo (travel band — slot marked with a SWAP comment),
+   the beanie shot (optional). Micah's grill photo deliberately skipped — personal brand.
 5. Meal JOY case-study narrative on /work/ is minimal and flagged **EDIT ME** in COPY.md —
    Charlie should confirm the "setup/system" wording (numbers are locked and correct:
    4–11× avg Meta ROAS / 4× revenue as headline; launch receipts as the show-your-work line).

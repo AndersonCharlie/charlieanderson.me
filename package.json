@@ -1,0 +1,12 @@
+{
+  "name": "charlieanderson-site",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "dev": "node _tools/dev-server.mjs"
+  }
+}

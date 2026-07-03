@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a strategy call — Charlie Anderson, Anderson Marketing</title>
+<meta name="description" content="30 minutes on Zoom. No pitch. We look at your business, find where money is being left, and talk through what to do about it. Free.">
+<link rel="canonical" href="https://charlieanderson.me/call/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://charlieanderson.me/call/">
+<meta property="og:title" content="Book a strategy call — Charlie Anderson">
+<meta property="og:description" content="30 minutes. We look at your business, find where money is being left, and talk through what to do about it. Free.">
+<meta property="og:image" content="https://charlieanderson.me/assets/og.png">
+<meta property="og:image:alt" content="Charlie Anderson — Anderson Marketing. There's a line.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAF7F0">
+
+<!-- CRITICAL: this inline script must run before any CSS paint -->
+<script>document.documentElement.className="js";if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion");</script>
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380..700;1,9..144,380..700&family=Inter:wght@400;500;600&display=swap">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<script defer src="/js/copy.js"></script>
+<script defer src="/js/main.js"></script>
+<script defer src="/js/booking.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__mark" href="/" aria-label="Charlie Anderson — home">
+      <svg width="38" height="30" viewBox="0 0 38 30" fill="none" aria-hidden="true">
+        <path d="M2.5 23 L8.5 7 L14.5 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.2 17.6 L11.8 17.6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M19 23 L19 7 L25 16.5 L31 7 L31 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="35.4" cy="21.6" r="2.1"/>
+      </svg>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/work/">Work</a>
+      <a href="/about/">About</a>
+    </nav>
+    <a class="btn btn--nav" href="/book/" data-event="cta_click" data-event-label="nav">Free diagnosis</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== Hero ===== -->
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Strategy call · 30 minutes · Free · Zoom</p>
+      <h1 data-reveal style="--reveal-delay:100ms">Pick a time. <em class="accent u-h1w">Let's talk.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3,8 Q45,3 90,7 T197,5"/></svg></em></h1>
+      <p class="lede" data-reveal style="--reveal-delay:220ms">Thirty minutes on Zoom. We look at your business, find where money is being left, and talk through what to do about it. No pitch. You leave with something useful either way.</p>
+    </div>
+  </section>
+
+  <!-- ===== Booking flow (JS-driven) ===== -->
+  <section id="booking-picker-section" class="booking-section" aria-label="Pick a time">
+    <div class="wrap">
+
+      <!-- No-JS fallback: shown only when JS is absent -->
+      <noscript>
+        <div class="booking-nojs">
+          <p>To book a call, visit the <a href="/book/">free diagnosis page</a> and use the form there, or email me directly at <a href="mailto:charlie@charlieanderson.me" data-event="email_click">charlie@charlieanderson.me</a>.</p>
+        </div>
+      </noscript>
+
+      <!-- Loading state -->
+      <div id="booking-loading" class="booking-loading" aria-live="polite" hidden>
+        <p class="eyebrow">Checking availability…</p>
+        <div class="booking-loading__dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Error state -->
+      <div id="booking-error" class="booking-error" aria-live="polite" hidden>
+        <p class="booking-error__msg">Couldn't load available times — <a href="mailto:charlie@charlieanderson.me" data-event="email_click">email me directly</a> to set something up.</p>
+      </div>
+
+      <!-- Empty state -->
+      <div id="booking-empty" class="booking-empty" aria-live="polite" hidden>
+        <p class="booking-empty__msg">No open times in the next few weeks. <a href="mailto:charlie@charlieanderson.me" data-event="email_click">Email me</a> and we'll find something.</p>
+      </div>
+
+      <!-- Picker: day + slot selection (shown while choosing) -->
+      <div id="booking-picker" hidden>
+
+        <!-- Timezone notice -->
+        <p id="booking-tz" class="booking-tz eyebrow" aria-live="polite"></p>
+
+        <!-- Day picker -->
+        <div class="booking-days-wrap">
+          <p class="eyebrow booking-section-label" data-reveal>Pick a day</p>
+          <div id="booking-days" class="booking-days" role="listbox" aria-label="Available days" data-reveal style="--reveal-delay:80ms"></div>
+        </div>
+
+        <!-- Slot grid -->
+        <div class="booking-slots-wrap" id="booking-slots-wrap">
+          <p class="eyebrow booking-section-label" data-reveal>Pick a time</p>
+          <div id="booking-slots" class="booking-slots" role="listbox" aria-label="Available times" data-reveal style="--reveal-delay:80ms"></div>
+          <!-- 409 error message -->
+          <p id="booking-slot-taken" class="booking-slot-taken" hidden aria-live="assertive">That time was just taken — pick another.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Booking form (dark band, shown after slot selected) ===== -->
+  <section id="booking-form-section" class="lead booking-form-section" aria-label="Your details" hidden>
+    <div class="wrap">
+      <h2><span class="hline" data-reveal><span class="hline__in">Almost there.</span></span></h2>
+      <p class="lead__sub" data-reveal style="--reveal-delay:100ms">
+        <span id="booking-selected-label" class="booking-selected-label"></span>
+      </p>
+
+      <form id="booking-form" data-reveal style="--reveal-delay:200ms" novalidate>
+        <!-- Honeypot (visually hidden, bots fill it, humans leave it blank) -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off"
+               aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+
+        <div class="form-fields" data-reveal-group>
+          <label data-reveal>
+            Name
+            <input name="name" required autocomplete="name">
+          </label>
+          <label data-reveal>
+            Email
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label class="field--full" data-reveal>
+            <span>What should I look at first? <span class="opt">(optional)</span></span>
+            <textarea name="notes" rows="3" maxlength="400"></textarea>
+          </label>
+        </div>
+
+        <div class="booking-form-actions">
+          <button class="btn btn--primary btn--submit" type="submit" id="booking-submit" data-event="cta_click" data-event-label="booking-submit">Book my call</button>
+          <button class="btn booking-back-btn" type="button" id="booking-back">← Change time</button>
+        </div>
+        <p class="form-status" id="booking-status" hidden aria-live="polite"></p>
+        <p class="form-note">30 minutes on Zoom. The Zoom link comes with the confirmation email.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Confirmation (replaces form on success) ===== -->
+  <section id="booking-confirm" class="lead booking-confirm" aria-label="Booking confirmed" hidden>
+    <div class="wrap">
+      <p class="eyebrow booking-confirm__eyebrow" data-reveal>You're booked.</p>
+      <h2 data-reveal style="--reveal-delay:100ms">See you soon.</h2>
+      <p class="lead__sub" data-reveal style="--reveal-delay:180ms" id="booking-confirm-time"></p>
+      <p class="lead__sub booking-confirm-note" data-reveal style="--reveal-delay:260ms">Check your email — the Zoom link is in there.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="footer__brand">Anderson Marketing LLC — Fairfield County, CT</p>
+    <div class="footer__links">
+      <a data-copy-mailto data-event="email_click" href="mailto:charlie@charlieanderson.me">charlie@charlieanderson.me</a>
+      <a data-copy-href="config.SPOTIFY_URL" href="https://open.spotify.com/show/21qiKQ9A0Dk0hfDmqYaZOF" target="_blank" rel="noopener" data-event="podcast_click" data-event-label="footer">Podcast</a>
+      <span data-optional><a data-copy-href="config.LINKEDIN_URL" href="#" rel="me noopener" target="_blank">LinkedIn</a></span>
+      <span data-optional><a data-copy-href="config.IG_URL" href="#" rel="me noopener" target="_blank">Instagram</a></span>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/work/">Work</a><a href="/about/">About</a><a href="/book/">Free diagnosis</a>
+    </nav>
+    <p class="footer__wink">Built by hand — AI on the grunt work. © 2026</p>
+  </div>
+</footer>
+</body>
+</html>
