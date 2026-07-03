@@ -445,14 +445,17 @@ html:not(.motion) .sig-line__step { margin-top: 16px; }
   html.motion .spectrum__zone--agency .prop-card--stack:nth-of-type(4) { transform: translateX(-18px); }
   html.motion .prop-card--invoice { transform: translateX(-18px) rotate(-2deg); }
   html.motion .prop-card--glitch:nth-of-type(3) { display: none; }
-}
-@media (max-width: 480px) {
+  /* phones: center the title/line/copy cluster and keep the card clear of everything */
+  html.motion .sig-line__stage { justify-content: center; }
+  html.motion .spectrum { flex: 0 0 46svh; min-height: 0; }
+  html.motion .spectrum__track { top: 62%; }
   html.motion .spectrum__zone { width: 44%; }
-  html.motion .spectrum__mid { width: min(220px, 60vw); bottom: calc(48% + 18px); }
-  html.motion .mid-card { padding: 12px 12px; }
-  html.motion .mid-card__name { font-size: 1.05rem; margin-bottom: 8px; }
-  html.motion .chip { font-size: 0.6rem; padding: 5px 8px; margin-top: 5px; }
-  html.motion .sig-line__title { font-size: 1.9rem; }
+  html.motion .spectrum__mid { width: min(300px, 84vw); bottom: calc(38% + 16px); }
+  html.motion .mid-card { padding: 14px 16px; }
+  html.motion .mid-card__name { font-size: 0.98rem; margin-bottom: 8px; white-space: nowrap; }
+  html.motion .chip { font-size: 0.62rem; padding: 5px 10px; margin-top: 5px; white-space: nowrap; }
+  html.motion .sig-line__title { font-size: 2rem; }
+  html.motion .sig-line__copy { min-height: 8.5em; margin-top: 12px; }
 }
 @media (max-width: 375px) {
   html.motion .prop-card--invoice { display: none; }
@@ -522,8 +525,6 @@ html:not(.motion) .diag { max-height: none; }
   .sig-diag__kicker { margin-top: clamp(20px, 3vh, 32px); }
 }
 @media (max-width: 640px) {
-  .spectrum__track { top: 52%; } /* pulls the line up on tall phones so copy sits closer */
-  html.motion .spectrum__marker { top: -7px; }
   html:not(.motion) .zone-tag { font-size: 0.7rem; }
   .case__receipts { font-size: 0.875rem; }
 }
