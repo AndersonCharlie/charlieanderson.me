@@ -168,6 +168,16 @@
         }
       }
 
+      var booking = (COPY.config || {}).BOOKING_URL;
+      var calendlyOffer = isPlaceholder(booking) ? "" :
+        ' <a href="' + booking + '" target="_blank" rel="noopener" data-event="cta_click" data-event-label="post-submit-calendly">Want to lock the call in now? Grab a time &rarr;</a>';
+      function showSuccess(msg) {
+        if (!status) return;
+        status.innerHTML = msg + calendlyOffer;
+        status.classList.add("form-status--ok");
+        status.removeAttribute("hidden");
+      }
+
       if (isPlaceholder(endpoint)) {
         // No endpoint configured yet: build the email instead.
         var lines = [];
@@ -177,7 +187,7 @@
           "&body=" + encodeURIComponent(lines.join("\n"));
         track("diagnosis_submit", { via: "mailto" });
         window.location.href = mail;
-        showStatus("Opening your email app — hit send and I'll take it from there.", true);
+        showSuccess("Opening your email app — hit send and I'll take it from there.");
         return;
       }
 
@@ -187,7 +197,7 @@
           if (!res.ok) throw new Error("bad status " + res.status);
           track("diagnosis_submit", { via: "form" });
           form.querySelectorAll(".form-fields, button[type=submit]").forEach(function (n) { n.setAttribute("hidden", ""); });
-          showStatus("Got it. I'll take a look and get back to you within a couple of days.", true);
+          showSuccess("Got it — I read every one of these myself. I'll get back to you within a couple of days.");
         })
         .catch(function () {
           var email = COPY.config.EMAIL || "charlie@charlieanderson.me";

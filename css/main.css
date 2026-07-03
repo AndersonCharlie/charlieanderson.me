@@ -754,6 +754,11 @@ html.js .teaser__text.is-in { filter: blur(0); }
 .btn--submit.is-busy { opacity: 0.6; pointer-events: none; }
 .form-status { margin-top: 20px; font-weight: 600; }
 .form-status--ok { color: #7FC99A; }
+.form-status--ok a {
+  display: inline-block; margin-top: 10px;
+  color: var(--dark-accent);
+  text-decoration: underline; text-underline-offset: 4px;
+}
 .form-status:not(.form-status--ok) { color: #F08070; }
 .form-status a { text-decoration: underline; text-underline-offset: 3px; }
 .form-note { margin-top: 14px; font-size: 0.85rem; color: var(--dark-muted); }
