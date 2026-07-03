@@ -600,6 +600,10 @@ html.motion .ai-ticker li { opacity: 0; }
   }
 }
 
+/* podcast band: own stacking context + opaque bg — a mis-measured pin can never paint over it */
+.pod { position: relative; z-index: 1; background: var(--paper); }
+.pod-card:first-child .pod-card__thumb img { object-fit: contain; background: var(--dark-bg); } /* square show-logo art, letterboxed */
+
 /* ---------- 10. proof ---------- */
 .proof { padding-block: var(--sect); border-top: 1px solid var(--hair); }
 .proof__grid {

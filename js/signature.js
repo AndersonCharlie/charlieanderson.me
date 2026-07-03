@@ -64,6 +64,7 @@
         pin: stage,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+        refreshPriority: 1, // sits AFTER the pinned diagnosis in the DOM — measure it second
       },
     });
 
@@ -142,6 +143,7 @@
             pin: stage,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            refreshPriority: 2, // diagnosis is the FIRST pinned section in the DOM — measure it first
           },
         });
 
@@ -215,6 +217,12 @@
       machinePane.addEventListener("mouseleave", function () { section.classList.remove("is-hot"); });
     }
   })();
+
+  /* The sections' triggers are built in file order but live in a different DOM
+     order — sort by refreshPriority/position, then re-measure so each pin
+     accounts for the spacers inserted by the pins before it. */
+  ScrollTrigger.sort();
+  ScrollTrigger.refresh();
 
   /* keep pin math honest once webfonts land (debounced — load + fonts.ready often coincide) */
   var refreshTimer;

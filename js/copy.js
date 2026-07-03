@@ -25,8 +25,6 @@ window.COPY = {
   stats: {
     // How many clients the team takes at a time
     clientCount: "5–8",
-    // Charlie's mile time (About page)
-    mileTime: "5:56",
     // Meal JOY — average ROAS range on Meta ads
     mealjoyRoasRange: "4–11×",
     // Meal JOY — what happened to their overall revenue

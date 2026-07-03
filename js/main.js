@@ -81,8 +81,13 @@
       requestAnimationFrame(function () {
         var y = window.scrollY;
         nav.classList.toggle("nav--solid", y > 40);
-        if (!REDUCED) nav.classList.toggle("nav--hidden", y > lastY && y > 320);
-        lastY = y;
+        // only react to deliberate movement — iOS momentum jitter otherwise flickers the bar
+        var dy = y - lastY;
+        if (Math.abs(dy) > 8) {
+          if (!REDUCED) nav.classList.toggle("nav--hidden", dy > 0 && y > 320);
+          lastY = y;
+        }
+        if (y <= 320) nav.classList.remove("nav--hidden");
         ticking = false;
       });
     }, { passive: true });

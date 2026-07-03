@@ -18,7 +18,7 @@ This file mirrors the live copy so you can review/edit words without digging thr
 |---|---|---|
 | `FORM_ENDPOINT` | FormSubmit → charlie@charlieanderson.me | **REAL.** First-ever submission triggers a one-time activation email — click its confirm link once. |
 | `BOOKING_URL` | calendly.com/charlie-interviews | **REAL.** Shown in Book hero, under both forms. |
-| `LINKEDIN_URL` | `[LINKEDIN_URL]` | Still placeholder — footer link hidden until swapped. |
+| `LINKEDIN_URL` | linkedin.com/in/charlie-anderson-957988286 | **REAL.** |
 | `IG_URL` | `[IG_URL]` | Still placeholder — footer link hidden until swapped. |
 | `EMAIL` | charlie@charlieanderson.me | (real) |
 
@@ -34,7 +34,6 @@ This file mirrors the live copy so you can review/edit words without digging thr
 | `mealjoyPeakMultiple` | 4.43× | Work "receipts" line |
 | `mealjoyPeakWindow` | 12-day | Work "receipts" line |
 | `mealjoyCpcShort` | ~⅓ | Home proof strip, Work case study |
-| `mileTime` | 5:56 | About (prose + chip) |
 
 Testimonials: **[PENDING] slots only** — styled placeholders on /work/ and Home proof strip. Never invented.
 
@@ -166,19 +165,20 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
 # ABOUT (`about/index.html`)
 
 ### COPY: about-story
-- H1: `I like scoreboards.`
-- `I'm Charlie Anderson. I started this little marketing business as a sophomore in high school, because
-  marketing has a scoreboard — the numbers either move or they don't. It's been quite the few adventures
-  since: a real team, real systems, a short client list on purpose, and work that's taken us around the world.`
-- `Where this is going: a firm known for one thing — systems that pay for themselves. Not headcount,
-  not awards. Results a business owner can read on a bank statement.`
+- H1: `I like results.`
+- `I'm Charlie Anderson. I started this little marketing business as a sophomore in high school, and
+  it's been quite the few adventures since — a real team, real systems, a short client list on purpose,
+  and work that's taken us around the world.`
+- `Where this is going: a firm known for one thing — systems that pay for themselves. Plain and simple:
+  your business makes more money than it pays me, or I haven't done my job.`
 
 ### COPY: about-discipline
-- Eyebrow: `01 — The discipline` · Heading: `Show up daily. Measure everything.`
-- `Gym every day. A {mileTime} mile, boxing, climbing when I can get on a wall, skiing when there's snow.
-  I run client work the same way I train: show up daily, measure everything, improve on purpose. You
-  can't fake a mile time, and you can't fake a return on ad spend.`
-- Chips: `Daily gym` / `{mileTime} mile` / `Boxer` / `Climber` / `Skier` / `Marathon in training`
+- Eyebrow: `01 — Off the clock` · Heading: `Not your average marketing nerd.`
+- `Gym every day — boxing, climbing, skiing when there's snow. I'm not the guy who sits behind a screen
+  all day; I like being outside, competing, and hanging out with good people. Point is: I'm a normal guy
+  you'll actually enjoy working with — who happens to be serious about what he does.`
+- Chips: `Daily gym` / `Boxer` / `Climber` / `Skier` / `Marathon in training`
+- Photo: ski selfie (assets/about-ski.jpg) · caption `Between runs`
 
 ### COPY: about-adventure
 - Eyebrow: `02 — The range` · Heading: `Spain. Italy. Germany in October. Your numbers won't notice.`
@@ -188,27 +188,16 @@ free diagnosis of your whole funnel.` / button `Get your free diagnosis` (→ /b
   That's the whole point of building systems instead of selling hours.`
 - Photo: Pisa, Italy (assets/about-italy.jpg) · caption `On location: Italy`
 
-### COPY: about-warning
-- Eyebrow: `04 — Fair warning` · Heading: `Not your Fiverr gig.`
-- `I'm from Fairfield, Connecticut. Boxer, rock climber, skier — a real person you'll actually get along
-  with, not an anonymous gig queue. And if all this adventure, risk, and reward makes you uncomfortable —
-  I'll happily refer you to Fiverr. Or maybe even Indeed. They'll take care of your problem slowly and
-  painstakingly.` (hand underline on the last three words)
-
-### COPY: about-team
-- Eyebrow: `03 — The team` · Heading: `Small team. No interns.`
-- Intro: `I run point on strategy, paid ads, and the funnel. Micah and Thomas cover the ground I don't —
-  so between us there's no hand-off chain, no account manager, no intern. And when a build needs more —
-  video editing, videography — I bring in people I trust, only for as long as the work needs them.`
-- Cards: `Charlie — Strategy, paid ads, funnels, email. Your point of contact — always.` (photo) /
-  `Micah — Website conversion and social media. Makes the traffic do something.` /
-  `Thomas — SEO, optimization, and fine-tuning. The compounding, unglamorous wins.` /
-  `The bench — Video editing, videography, and specialists on call — pulled in when your build needs
-  them, not billed when it doesn't.`
-- Portrait caption (hero): `The guy reading your form submissions`
+### COPY: about-standard
+- Eyebrow: `04 — The standard` · Heading: `Done properly, or not at all.`
+- `Everything I do runs on one principle: quality. The training, the travel, the client work — if it's
+  worth doing, it's worth doing properly. A $25 gig worker gets paid the second the task is marked
+  complete, whether it worked or not. I get paid when it works — when your numbers move.`
+  (hand underline on "when your numbers move.")
+- Photo: beanie ridge shot (assets/about-warning.jpg) · caption `Comes with the standard`
 
 ### COPY: about-cta
-`See what a scoreboard for your business looks like.` / `The diagnosis is free: your whole funnel, the
+`Let's see what your numbers could look like.` / `The diagnosis is free: your whole funnel, the
 weak points, and a written plan. You keep the plan either way.` / button `Get your free diagnosis`
 
 ---
