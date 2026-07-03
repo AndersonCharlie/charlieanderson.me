@@ -82,6 +82,9 @@ Section order: hero → Diagnosis (pinned) → Podcast → There's a line (pinne
   how everything actually works together — find the weak points, and build you a detailed plan to fix
   and grow the business.`
 - Kicker: `The plan and the call are free. I only charge if you want my help implementing it.`
+  (the bold orange sentence renders on its own line; the rest follows on the next line)
+- Diagram row captions (desktop): `weak points` (red row) / `the plan` (green row) — they tie the
+  diagram to the body copy ("find the weak points, and build you a detailed plan").
 - Diagram labels (illustrative, not claims): nodes `TRAFFIC → WEBSITE → FOLLOW-UP → SALE`;
   feed chips above each node — TRAFFIC: Facebook / Instagram / YouTube / Google emblems (ink-stroke
   icons, no brand colors); WEBSITE: `conversion rate` / `SEO`; FOLLOW-UP: email / SMS / retargeting-pixel

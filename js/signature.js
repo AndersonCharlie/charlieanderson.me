@@ -98,18 +98,25 @@
   (function diagnosis() {
     var section = document.querySelector(".sig-diag");
     if (!section) return;
-    // short phones (SE / 8 Plus class): the stage head + kicker leave <300px for the diagram —
-    // pinned text would be illegible, so serve the static ledger diagram instead of the show
-    if (window.matchMedia("(max-width: 720px) and (max-height: 760px)").matches) {
-      section.classList.add("sig-diag--static");
-      return;
-    }
     var stage = section.querySelector(".sig-diag__stage");
+    var wrap = section.querySelector(".diag-wrap");
 
     var mm = gsap.matchMedia();
     mm.add(
-      { desktop: "(min-width: 721px)", mobile: "(max-width: 720px)" },
+      {
+        desktop: "(min-width: 901px)",
+        mobile: "(max-width: 900px) and (min-height: 541px)",
+        // pocket landscape only: no orientation gives a pinned diagram room — static ledger.
+        // (NEVER gate on portrait-phone heights: iOS Safari reports ~660px of viewport on a
+        // brand-new iPhone once the browser chrome is counted.)
+        tiny: "(max-width: 900px) and (max-height: 540px)",
+      },
       function (ctx) {
+        if (ctx.conditions.tiny) {
+          section.classList.add("sig-diag--static");
+          // rotating back out of pocket-landscape re-runs this matchMedia and builds the show
+          return function () { section.classList.remove("sig-diag--static"); };
+        }
         var svg = section.querySelector(ctx.conditions.desktop ? ".diag--h" : ".diag--v");
         if (!svg) return;
         var nodes = gsap.utils.toArray(svg.querySelectorAll(".diag__node"));
@@ -130,27 +137,45 @@
           });
         });
         gsap.set(nodes, { autoAlpha: 0.12, scale: 0.9, transformOrigin: "center" }); // ghost skeleton — the stage never looks empty
+        var rowlabels = svg.querySelectorAll(".diag__rowlabel");
         gsap.set(weaks, { autoAlpha: 0 });
         gsap.set(svg.querySelectorAll(".diag__fix text, .diag__fix .diag__fixlabel"), { autoAlpha: 0 });
         gsap.set(scan, { autoAlpha: 0 });
         gsap.set(kicker, { autoAlpha: 0, y: 16 });
+        if (rowlabels.length) gsap.set(rowlabels, { autoAlpha: 0 });
 
         var scanAxis = ctx.conditions.desktop
           ? { from: { x: 0 }, to: { x: function () { return svg.viewBox.baseVal.width; } } }
           : { from: { y: 0 }, to: { y: function () { return svg.viewBox.baseVal.height; } } };
 
+        // Desktop pins the whole stage (head + diagram share the screen comfortably).
+        // Phones/portrait tablets pin ONLY the diagram wrap: the head scrolls away first,
+        // then the diagram alone owns the screen — pinning the full stage left the SVG
+        // squeezed under ~450px of head + kicker, too small to read.
         var tl = gsap.timeline({
           defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: ctx.conditions.desktop ? "+=210%" : "+=170%", // matches the SVG-variant breakpoint, not the global MOBILE one
-            scrub: 0.6,
-            pin: stage,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            refreshPriority: 2, // diagnosis is the FIRST pinned section in the DOM — measure it first
-          },
+          scrollTrigger: ctx.conditions.desktop
+            ? {
+                trigger: section,
+                start: "top top",
+                end: "+=210%",
+                scrub: 0.6,
+                pin: stage,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                refreshPriority: 2, // diagnosis is the FIRST pinned section in the DOM — measure it first
+              }
+            : {
+                trigger: wrap,
+                start: "top 76px",
+                end: "+=170%",
+                scrub: 0.6,
+                pin: wrap,
+                pinSpacing: true, // explicit — GSAP drops it silently if a parent is ever flex again
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                refreshPriority: 2,
+              },
         });
 
         // Assemble the funnel: sources pop in, flow down, the stage lands, the rail continues
@@ -160,7 +185,7 @@
           gsap.set(feed.querySelectorAll(".diag__feedline"), { autoAlpha: 0 });
         });
         nodes.forEach(function (n, i) {
-          var t = i * 0.34;
+          var t = i * 0.30; // assembly ends ~1.5 — a real breath before the scan fires at 1.75
           var feed = feeds[i];
           if (feed) {
             tl.to(feed.querySelectorAll(".diag__chip"), { autoAlpha: 1, y: 0, duration: 0.14, stagger: 0.045, ease: EASE_SNAP }, t)
@@ -173,6 +198,11 @@
         // The scan pass — leaks light up as the beam crosses them
         tl.set(scan, { autoAlpha: 1 }, 1.75)
           .fromTo(scan, scanAxis.from, Object.assign({ duration: 1.0, ease: "power1.inOut" }, scanAxis.to), 1.75);
+        // row captions tie the diagram to the copy: "the weak points" as the scan begins, "the plan" as the fixes draw
+        if (rowlabels.length) {
+          tl.to(rowlabels[0], { autoAlpha: 1, duration: 0.15 }, 1.95);
+          if (rowlabels[1]) tl.to(rowlabels[1], { autoAlpha: 1, duration: 0.15 }, 2.95);
+        }
         // each leak lights up as the beam actually reaches it: invert the scan ease at the leak's position
         var scanEase = gsap.parseEase("power1.inOut");
         var scanLen = ctx.conditions.desktop ? svg.viewBox.baseVal.width : svg.viewBox.baseVal.height;
@@ -196,11 +226,40 @@
           tl.to(strokes, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.9 + i * 0.22)
             .to(labels, { autoAlpha: 1, duration: 0.18 }, 3.02 + i * 0.22);
         });
-        tl.add(function () { section.classList.add("is-diagnosed"); }, 3.7) // after the LAST fix finishes drawing (~3.64) — the leaks dim only once every fix has landed
-          .to(kicker, { autoAlpha: 1, y: 0, duration: 0.3, ease: EASE_OUT }, 3.75)
-          .to({}, { duration: 0.25 });
+        // the resolution is a scrubbed, reversible tween — scroll back up and the leaks re-arm,
+        // the pulse resumes, and the scan plays again (a latch would turn the beat into a one-shot)
+        tl.to(weaks, {
+          autoAlpha: 0.42,
+          duration: 0.25,
+          ease: "power1.out",
+          onStart: function () { section.classList.add("is-diagnosed"); },
+          onReverseComplete: function () { section.classList.remove("is-diagnosed"); },
+        }, 3.7); // after the LAST fix finishes drawing (~3.64) — the leaks dim only once every fix has landed
+        var kickerST = null;
+        if (ctx.conditions.desktop) {
+          tl.to(kicker, { autoAlpha: 1, y: 0, duration: 0.3, ease: EASE_OUT }, 3.75)
+            .to({}, { duration: 0.25 });
+        } else {
+          // the kicker sits below the pinned wrap on phones — reveal it as it scrolls in after the pin
+          tl.to({}, { duration: 0.35 });
+          var kickerShown = false;
+          var showKicker = function () {
+            if (kickerShown) return;
+            kickerShown = true;
+            gsap.to(kicker, { autoAlpha: 1, y: 0, duration: 0.5, ease: EASE_OUT });
+          };
+          kickerST = ScrollTrigger.create({
+            trigger: kicker,
+            start: "top 94%",
+            once: true,
+            onEnter: showKicker,
+            // deep links / scroll restoration land already past the trigger, and the initial
+            // refresh sets that state WITHOUT firing onEnter — never strand the kicker
+            onRefresh: function (self) { if (self.progress > 0) showKicker(); },
+          });
+        }
 
-        return function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); };
+        return function () { if (kickerST) kickerST.kill(); tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); };
       }
     );
   })();
