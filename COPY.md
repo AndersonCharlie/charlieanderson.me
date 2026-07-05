@@ -8,10 +8,11 @@ This file mirrors the live copy so you can review/edit words without digging thr
 - **Narrative copy** (sentences/paragraphs) lives inline in each HTML file inside clearly marked
   `<!-- COPY: block-name -->` … `<!-- /COPY -->` comments. Each block exists on exactly one page.
   Edit the HTML between the markers, then update this file.
-- **Exception (the only inline config):** the two lead forms' `action="mailto:charlie@charlieanderson.me"`
-  is baked into `index.html` and `book/index.html` so the form still works without JavaScript.
-  If the email ever changes: those 2 form actions + `config.EMAIL` in `js/copy.js`.
-- Without JavaScript, stat blocks hide themselves (so no empty numbers show) and forms fall back to email.
+- **Exception (the only inline config):** the two lead forms' `action="https://formsubmit.co/charlie@charlieanderson.me"`
+  is baked into `index.html` and `book/index.html` so the form still works (real POST) without JavaScript.
+  It MUST stay an `https://` action — a `mailto:` action makes Chrome flag the whole page "Not Secure"
+  (mixed content). If the email ever changes: those 2 form actions + `config.EMAIL` in `js/copy.js`.
+- Without JavaScript, stat blocks hide themselves (so no empty numbers show) and forms POST straight to FormSubmit.
 
 ## Swap table (all in `js/copy.js`)
 | Key | Currently | Notes |
